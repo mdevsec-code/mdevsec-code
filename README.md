@@ -61,12 +61,6 @@ Site de agendamento para clínica de fisioterapia.
 
 <br>
 
-### 📊 GitHub Stats
-
-*(Removido por ora — o serviço público `github-readme-stats.vercel.app` está com instabilidade confirmada nos últimos meses, com múltiplos relatos de bug em aberto no repositório oficial. Não vale a pena arriscar uma imagem quebrada num perfil profissional. Veja a nota abaixo para retomar isso no futuro, se quiser.)*
-
-<br>
-
 ### 🎓 Formação
 
 Bacharelado em Sistemas de Informação — UNIME (8º semestre, conclusão prevista para breve)
