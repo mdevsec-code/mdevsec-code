@@ -4,8 +4,6 @@
 
 </div>
 
-</div>
-
 <div align="center">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/murilo-de-souza-cerqueira)
@@ -65,12 +63,7 @@ Site de agendamento para clínica de fisioterapia.
 
 ### 📊 GitHub Stats
 
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=mdevsec-code&show_icons=true&theme=default&hide_border=true" height="165"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mdevsec-code&layout=compact&hide_border=true" height="165"/>
-
-</div>
+*(Removido por ora — o serviço público `github-readme-stats.vercel.app` está com instabilidade confirmada nos últimos meses, com múltiplos relatos de bug em aberto no repositório oficial. Não vale a pena arriscar uma imagem quebrada num perfil profissional. Veja a nota abaixo para retomar isso no futuro, se quiser.)*
 
 <br>
 
