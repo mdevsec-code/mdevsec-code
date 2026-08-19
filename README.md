@@ -1,6 +1,8 @@
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&color=2F81F7&center=true&vCenter=true&width=600&lines=Ol%C3%A1%2C+eae+eu+sou+o+Murilo+%F0%9F%91%8B;Full-Stack+Developer;Dados+%26+Business+Intelligence;Automa%C3%A7%C3%A3o+de+Processos)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&color=2F81F7&center=true&vCenter=true&width=600&lines=Eae%2C+eu+sou+o+Murilo;Transformo+dados+em+decisao;Construo+o+que+falta;Full-Stack+%26+Business+Intelligence)
+
+</div>
 
 </div>
 
@@ -65,7 +67,7 @@ Site de agendamento para clínica de fisioterapia.
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=mdevsec-code&show_icons=true&theme=default&hide_border=true&count_private=true" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api?username=mdevsec-code&show_icons=true&theme=default&hide_border=true" height="165"/>
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mdevsec-code&layout=compact&hide_border=true" height="165"/>
 
 </div>
