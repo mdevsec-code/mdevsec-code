@@ -14,30 +14,36 @@
 
 <br>
 
-Desenvolvedor full-stack e profissional de dados, atuando na interseção entre **desenvolvimento de software**, **BI/automação de processos** e **ambiente industrial**. Atualmente na ENGENOVA Construções (unidade nas instalações da fábrica da BYD, Camaçari/BA).
+<p align="center">
+  Desenvolvedor full-stack e profissional de dados, atuando na interseção entre <strong>desenvolvimento de software</strong>, <strong>BI/automação de processos</strong> e <strong>ambiente industrial</strong>.<br>
+  Atualmente na <strong>ENGENOVA Construções</strong> (unidade nas instalações da fábrica da BYD, Camaçari/BA).
+</p>
 
 <br>
 
-### 🔧 O que eu faço
+## 🔧 O que eu faço
 
-- Desenvolvimento de aplicações web full-stack (React, TypeScript, Node.js, NestJS)
-- Dashboards e ferramentas de BI personalizadas em HTML/JavaScript (para cenários sem Power BI/nuvem disponível)
-- Automação de relatórios e processos com Python
-- Integração e gestão de dados via SAP (Fiori, MM)
-- Consolidação, validação e análise de dados operacionais em ambiente industrial
+- 🖥️ Desenvolvimento de aplicações web full-stack (React, Vue, TypeScript, Node.js, NestJS)
+- 📊 Dashboards e ferramentas de BI personalizadas em HTML/JavaScript (para cenários sem Power BI/nuvem disponível)
+- 🤖 Automação de relatórios e processos com Python
+- 🔗 Integração e gestão de dados via SAP (Fiori, MM)
+- 🏭 Consolidação, validação e análise de dados operacionais em ambiente industrial
 
 <br>
 
-### 🛠️ Stack
+## 🛠️ Stack
 
 <div align="center">
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![SAP](https://img.shields.io/badge/SAP-0FAAFF?style=for-the-badge&logo=sap&logoColor=white)
 ![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)
 
@@ -45,27 +51,82 @@ Desenvolvedor full-stack e profissional de dados, atuando na interseção entre 
 
 <br>
 
-### 📂 Projetos
+## 📊 GitHub Stats
 
-**[Falcão Saúde Ocupacional](https://github.com/mdevsec-code/falcao-saude-ocupacional)**
-Plataforma completa de gestão de saúde e segurança ocupacional, com 17 módulos operacionais, RBAC, auditoria LGPD e suporte a 3 idiomas (PT/EN/ZH).
-`React 18` `TypeScript` `Vite` `TailwindCSS` `NestJS` `Prisma` `PostgreSQL`
+<div align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=mdevsec-code&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=00000000" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mdevsec-code&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000" />
+</div>
 
-**[Falcão ERP Suprimentos](https://github.com/mdevsec-code/falcao-ERP-suprimentos-master)** *(em desenvolvimento)*
-Sistema para o setor de Suprimentos da Falcão Construções e Engenharia — gerenciamento de pedidos, boletos e processos de compras.
-`TypeScript`
-
-**[Clínica Fisioterapia](https://github.com/mdevsec-code/clinica-fisioterapia)**
-Site de agendamento para clínica de fisioterapia.
-`Vue`
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=mdevsec-code&theme=tokyonight&hide_border=true&background=00000000" />
+</div>
 
 <br>
 
-### 🎓 Formação
+## 📂 Projetos
+
+<table>
+  <tr>
+    <td width="100%">
+      <h3><a href="https://github.com/mdevsec-code/clinica-de-saude-estetica">💆‍♀️ Clínica Noely Cerqueira — Estética e Micropigmentação</a></h3>
+      <p>
+        Plataforma completa de gestão para clínica de estética: site público com agendamento
+        online self-service, e painel administrativo com catálogo de serviços, agenda,
+        <strong>módulo financeiro</strong> (DRE, conciliação bancária via importação de extrato OFX,
+        vencimentos e recebimentos do dia), estoque, gestão de usuários e log de auditoria.
+        Construída desde o início como base para um futuro SaaS multi-tenant.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Vue_3-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" />
+        <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <h3><a href="https://github.com/mdevsec-code/falcao-saude-ocupacional">🏥 Falcão Saúde Ocupacional</a></h3>
+      <p>
+        Plataforma completa de gestão de saúde e segurança ocupacional, com 17 módulos
+        operacionais, RBAC, auditoria LGPD e suporte a 3 idiomas (PT/EN/ZH).
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
+        <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <h3><a href="https://github.com/mdevsec-code/falcao-ERP-suprimentos-master">📦 Falcão ERP Suprimentos</a> <sub>(em desenvolvimento)</sub></h3>
+      <p>
+        Sistema para o setor de Suprimentos da Falcão Construções e Engenharia — gerenciamento
+        de pedidos, boletos e processos de compras.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+## 🎓 Formação
 
 Bacharelado em Sistemas de Informação — UNIME (8º semestre, conclusão prevista para breve)
 
-### 🌐 Idiomas
+## 🌐 Idiomas
 
 Português (nativo) · Inglês Avançado (CNA Master e Platinum)
 
