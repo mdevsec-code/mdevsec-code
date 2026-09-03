@@ -53,13 +53,27 @@
 
 ## 📊 GitHub Stats
 
+<!-- github-readme-stats.vercel.app fica fora do ar com frequência (serviço
+     gratuito sobrecarregado) — os dois cards que dependiam dele quebravam
+     pra quem visse o perfil nesses momentos. streak-stats.demolab.com (mesma
+     família de serviço do typing-svg do topo) se mostrou mais estável, então
+     ficou como a única fonte de stats dinâmicas aqui. -->
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=mdevsec-code&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=00000000" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mdevsec-code&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000" />
+  <img src="https://streak-stats.demolab.com?user=mdevsec-code&theme=tokyonight&hide_border=true&background=00000000" />
 </div>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=mdevsec-code&theme=tokyonight&hide_border=true&background=00000000" />
+
+![React](https://skillicons.dev/icons?i=react)
+![Vue](https://skillicons.dev/icons?i=vue)
+![TypeScript](https://skillicons.dev/icons?i=typescript)
+![NodeJS](https://skillicons.dev/icons?i=nodejs)
+![NestJS](https://skillicons.dev/icons?i=nestjs)
+![Python](https://skillicons.dev/icons?i=python)
+![PostgreSQL](https://skillicons.dev/icons?i=postgresql)
+![Prisma](https://skillicons.dev/icons?i=prisma)
+![Git](https://skillicons.dev/icons?i=git)
+
 </div>
 
 <br>
