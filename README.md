@@ -87,9 +87,12 @@
       <p>
         Plataforma completa de gestão para clínica de estética: site público com agendamento
         online self-service, e painel administrativo com catálogo de serviços, agenda,
+        <strong>módulo de acompanhamento de pacientes</strong> (ficha clínica, retornos automáticos
+        por procedimento, galeria de fotos antes/depois e lembretes via WhatsApp Cloud API),
         <strong>módulo financeiro</strong> (DRE, conciliação bancária via importação de extrato OFX,
-        vencimentos e recebimentos do dia), estoque, gestão de usuários e log de auditoria.
-        Construída desde o início como base para um futuro SaaS multi-tenant.
+        vencimentos e recebimentos do dia), estoque, gestão de usuários e log de auditoria com
+        rastreio de acesso a dado sensível (LGPD). Construída desde o início como base para um
+        futuro SaaS multi-tenant.
       </p>
       <p>
         <img src="https://img.shields.io/badge/Vue_3-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" />
