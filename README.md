@@ -108,8 +108,14 @@
     <td width="100%">
       <h3><a href="https://github.com/mdevsec-code/falcao-saude-ocupacional">🏥 Falcão Saúde Ocupacional</a></h3>
       <p>
-        Plataforma completa de gestão de saúde e segurança ocupacional, com 17 módulos
-        operacionais, RBAC, auditoria LGPD e suporte a 3 idiomas (PT/EN/ZH).
+        Plataforma de saúde e segurança ocupacional da Falcão Construções e Engenharia, para Recepção,
+        Médicos, Enfermeiros, Técnicos de Segurança, RH e Administradores: agenda e agendamentos,
+        <strong>prontuário eletrônico</strong>, atendimentos, catálogo CID, exames, <strong>ASO por atividade de risco</strong>,
+        atestados, férias e <strong>segurança do trabalho</strong> (desvios e indicadores de acidentes NBR 14280).
+        17 módulos, RBAC com bloqueio por rota, <strong>trilha de auditoria LGPD</strong> e 3 idiomas (PT/EN/ZH).
+      </p>
+      <p>
+        🔗 <a href="https://falcao-saude-ocupacional-eta.vercel.app">Demonstração no ar</a>
       </p>
       <p>
         <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
@@ -120,6 +126,7 @@
         <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
         <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
         <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" />
       </p>
     </td>
   </tr>
