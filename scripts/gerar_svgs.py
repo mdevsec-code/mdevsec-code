@@ -434,6 +434,92 @@ def terminal_svg(lines=TERMINAL_LINES, width=1200, font=18, step_y=34, short_pro
     )
 
 
+# ── Formação e idiomas ──────────────────────────────────────────────────────
+# Dois painéis no traço do banner: a graduação com os 8 semestres acendendo um
+# a um, e os idiomas com barras de nível. No celular os painéis ficam um
+# embaixo do outro.
+
+SEMESTRES = 8
+IDIOMAS = [
+    ("Português", "Nativo", 1.0),
+    ("Inglês", "Avançado · CNA Master e Platinum", 0.86),
+]
+
+
+def _painel(x: int, y: int, w: int, h: int, rotulo: str, numero: str) -> str:
+    return (
+        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{{{{panel}}}}" stroke="{{{{grid2}}}}"/>'
+        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="url(#g)" opacity="0.5"/>'
+        f'<text x="{x + 28}" y="{y + 38}" class="mono" font-size="13" letter-spacing="3" fill="{{{{muted}}}}">{rotulo}</text>'
+        f'<text x="{x + w - 28}" y="{y + 38}" text-anchor="end" class="mono" font-size="12" fill="{{{{muted}}}}" opacity="0.7">{numero}</text>'
+        f'<path d="M{x + 28} {y + 52}H{x + w - 28}" stroke="{{{{grid2}}}}" stroke-dasharray="4 5"/>'
+    )
+
+
+def _formacao(x: int, y: int, w: int, titulo_fs: int = 30) -> str:
+    gap = 8
+    seg = (w - 56 - gap * (SEMESTRES - 1)) / SEMESTRES
+    blocos = []
+    for i in range(SEMESTRES):
+        sx = x + 28 + i * (seg + gap)
+        ultimo = i == SEMESTRES - 1
+        cls = "seg now" if ultimo else "seg"
+        blocos.append(
+            f'<rect class="{cls}" style="animation-delay:{0.6 + i * 0.18:.2f}s" x="{sx:.1f}" y="{y + 182}" width="{seg:.1f}" height="14" rx="4" fill="url(#bar)"/>'
+            f'<text x="{sx + seg / 2:.1f}" y="{y + 220}" text-anchor="middle" class="mono" font-size="12" fill="{{{{muted}}}}">S{i + 1}</text>'
+        )
+    return (
+        _painel(x, y, w, 250, "FORMAÇÃO", "01")
+        + f'<g transform="translate({x + 28} {y + 80})"><path d="M0 12L22 2l22 10-22 10Z" fill="none" stroke="{{{{accent}}}}" stroke-width="2.2" stroke-linejoin="round"/>'
+        f'<path d="M9 16v9c4 4 22 4 26 0v-9" fill="none" stroke="{{{{accent}}}}" stroke-width="2.2"/><path d="M44 12v12" stroke="{{{{accent2}}}}" stroke-width="2.2"/></g>'
+        + f'<text x="{x + 88}" y="{y + 100}" class="serif" font-size="{titulo_fs}" font-weight="700" fill="{{{{text}}}}">Sistemas de Informação</text>'
+        + f'<text x="{x + 88}" y="{y + 128}" class="sans" font-size="17" fill="{{{{muted}}}}">Bacharelado · UNIME</text>'
+        + f'<text x="{x + 28}" y="{y + 168}" class="mono" font-size="14" fill="{{{{accent}}}}">8º semestre <tspan fill="{{{{muted}}}}">· conclusão prevista para breve</tspan></text>'
+        + "".join(blocos)
+    )
+
+
+def _idiomas(x: int, y: int, w: int) -> str:
+    linhas = []
+    for i, (nome, nivel, frac) in enumerate(IDIOMAS):
+        ly = y + 92 + i * 78
+        largura = (w - 56) * frac
+        linhas.append(
+            f'<text x="{x + 28}" y="{ly}" class="sans" font-size="21" font-weight="600" fill="{{{{text}}}}">{nome}</text>'
+            f'<text x="{x + w - 28}" y="{ly}" text-anchor="end" class="mono" font-size="13" fill="{{{{muted}}}}">{nivel}</text>'
+            f'<rect x="{x + 28}" y="{ly + 16}" width="{w - 56}" height="10" rx="5" fill="{{{{grid}}}}"/>'
+            f'<rect class="fillbar" style="animation-delay:{0.8 + i * 0.4:.1f}s" x="{x + 28}" y="{ly + 16}" width="{largura:.1f}" height="10" rx="5" fill="url(#bar)"/>'
+        )
+    return _painel(x, y, w, 250, "IDIOMAS", "02") + "".join(linhas)
+
+
+def formacao_svg(mobile: bool = False) -> str:
+    if mobile:
+        width, height = 460, 556
+        corpo = _formacao(20, 20, 420, titulo_fs=25) + _idiomas(20, 286, 420)
+    else:
+        width, height = 1200, 290
+        corpo = _formacao(20, 20, 620) + _idiomas(656, 20, 524)
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" '
+        'aria-label="Formação: Bacharelado em Sistemas de Informação, UNIME, 8º semestre. Idiomas: português nativo, inglês avançado.">'
+        "<title>Formação e idiomas</title>"
+        '<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="{{grid}}" stroke-width="1"/></pattern>'
+        '<linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="{{accent}}"/><stop offset="1" stop-color="{{accent2}}"/></linearGradient></defs>'
+        "<style>" + FONTS + """
+  @keyframes on { from { opacity: 0.12; } to { opacity: 1; } }
+  .seg { opacity: 0.12; animation: on 0.35s ease-out forwards; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .now { animation: on 0.35s ease-out forwards, pulse 1.8s ease-in-out 2.4s infinite; }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .fillbar { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); animation: grow 1.4s cubic-bezier(.2,.8,.2,1) forwards; }
+  @media (prefers-reduced-motion: reduce) { .seg, .now, .fillbar { animation: none !important; opacity: 1; transform: none; } }
+</style>"""
+        + corpo
+        + "</svg>\n"
+    )
+
+
 # ── Divisória e rodapé ─────────────────────────────────────────────────────
 
 DIVIDER = """<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="24" viewBox="0 0 1200 24" role="img" aria-label="">
@@ -482,6 +568,8 @@ def main() -> None:
         (ROOT / f"terminal-{name}.svg").write_text(fill(terminal_svg(), theme), encoding="utf-8")
         mobile = terminal_svg(TERMINAL_LINES_MOBILE, width=640, font=22, step_y=36, short_prompt=True)
         (ROOT / f"terminal-mobile-{name}.svg").write_text(fill(mobile, theme), encoding="utf-8")
+        (ROOT / f"formacao-{name}.svg").write_text(fill(formacao_svg(), theme), encoding="utf-8")
+        (ROOT / f"formacao-mobile-{name}.svg").write_text(fill(formacao_svg(mobile=True), theme), encoding="utf-8")
         (ROOT / f"divider-{name}.svg").write_text(fill(DIVIDER, theme), encoding="utf-8")
         (ROOT / f"footer-{name}.svg").write_text(fill(FOOTER, theme), encoding="utf-8")
         for key, label, hint, delay in BUTTONS:

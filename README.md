@@ -1,5 +1,5 @@
 <!--
-  Os SVGs animados (banner, botões, terminal, SAP, divisórias e rodapé) ficam em
+  Os SVGs animados (banner, botões, terminal, SAP, formação, divisórias e rodapé) ficam em
   assets/ e são gerados por scripts/gerar_svgs.py — edite os textos lá e rode o
   script. Banner e terminal têm versão de celular (*-mobile-*), escolhida pelo
   media="(max-width: 600px)". A cobrinha das contribuições é gerada todo dia por
@@ -120,9 +120,14 @@ Entrega de EPIs com **assinatura do colaborador na tela** (QR Code do crachá, h
 
 ## 🎓 Formação e idiomas
 
-- 🎓 **Bacharelado em Sistemas de Informação** — UNIME · 8º semestre, conclusão prevista para breve
-- 💬 **Português** — nativo
-- 🌐 **Inglês** — avançado (CNA Master e Platinum)
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/formacao-mobile-dark.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/formacao-mobile-light.svg">
+  <source media="(max-width: 600px)" srcset="assets/formacao-mobile-dark.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/formacao-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/formacao-light.svg">
+  <img alt="Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum)." src="assets/formacao-dark.svg" width="100%">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
