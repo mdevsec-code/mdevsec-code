@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="190" viewBox="0 0 600 190" role="img" aria-label="Obrigado pela visita">
+<title>Obrigado pela visita</title>
+<defs>
+  <linearGradient id="w1" x1="0" x2="1"><stop offset="0" stop-color="#2F81F7"/><stop offset="1" stop-color="#A371F7"/></linearGradient>
+</defs>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes wave { from { transform: translateX(0px); } to { transform: translateX(-600px); } }
+  .w1 { animation: wave 9s linear infinite; }
+  .w2 { animation: wave 14s linear infinite reverse; }
+  @media (prefers-reduced-motion: reduce) { .w1, .w2 { animation: none; } }
+</style>
+<g opacity="0.22" class="w2">
+  <path d="M0 142 C150 112 300 172 450 142 S750 112 900 142 S1200 172 1350 142 S1650 112 1800 142 V190 H0Z" fill="url(#w1)"/>
+</g>
+<g opacity="0.38" class="w1">
+  <path d="M0 158 C150 138 300 178 450 158 S750 138 900 158 S1200 178 1350 158 S1650 138 1800 158 V190 H0Z" fill="url(#w1)"/>
+</g>
+<text x="300" y="52" text-anchor="middle" class="serif" font-size="30" font-style="italic" fill="#E6EDF3">Obrigado pela visita —</text><text x="300" y="92" text-anchor="middle" class="serif" font-size="30" font-style="italic" fill="#E6EDF3">vamos construir algo juntos?</text>
+</svg>

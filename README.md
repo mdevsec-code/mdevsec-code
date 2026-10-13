@@ -130,6 +130,9 @@ Entrega de EPIs com **assinatura do colaborador na tela** (QR Code do crachá, h
 </picture>
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/footer-mobile-dark.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/footer-mobile-light.svg">
+  <source media="(max-width: 600px)" srcset="assets/footer-mobile-dark.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
   <img alt="Obrigado pela visita — vamos construir algo juntos?" src="assets/footer-dark.svg" width="100%">

@@ -560,6 +560,19 @@ FOOTER = """<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" vi
 """
 
 
+# No celular a frase do rodapé quebra em duas linhas, com fonte maior.
+FOOTER_MOBILE = (
+    FOOTER.replace('width="1200" height="150" viewBox="0 0 1200 150"', 'width="600" height="190" viewBox="0 0 600 190"')
+    .replace("M0 92 C150 62 300 122 450 92 S750 62 900 92 S1200 122 1350 92 S1650 62 1800 92 V150 H0Z", "M0 142 C150 112 300 172 450 142 S750 112 900 142 S1200 172 1350 142 S1650 112 1800 142 V190 H0Z")
+    .replace("M0 108 C150 88 300 128 450 108 S750 88 900 108 S1200 128 1350 108 S1650 88 1800 108 V150 H0Z", "M0 158 C150 138 300 178 450 158 S750 138 900 158 S1200 178 1350 158 S1650 138 1800 158 V190 H0Z")
+    .replace(
+        '<text x="600" y="54" text-anchor="middle" class="serif" font-size="22" font-style="italic" fill="{{text}}">Obrigado pela visita — vamos construir algo juntos?</text>',
+        '<text x="300" y="52" text-anchor="middle" class="serif" font-size="30" font-style="italic" fill="{{text}}">Obrigado pela visita —</text>'
+        '<text x="300" y="92" text-anchor="middle" class="serif" font-size="30" font-style="italic" fill="{{text}}">vamos construir algo juntos?</text>',
+    )
+)
+
+
 def main() -> None:
     ROOT.mkdir(parents=True, exist_ok=True)
     for name, theme in THEMES.items():
@@ -572,6 +585,7 @@ def main() -> None:
         (ROOT / f"formacao-mobile-{name}.svg").write_text(fill(formacao_svg(mobile=True), theme), encoding="utf-8")
         (ROOT / f"divider-{name}.svg").write_text(fill(DIVIDER, theme), encoding="utf-8")
         (ROOT / f"footer-{name}.svg").write_text(fill(FOOTER, theme), encoding="utf-8")
+        (ROOT / f"footer-mobile-{name}.svg").write_text(fill(FOOTER_MOBILE, theme), encoding="utf-8")
         for key, label, hint, delay in BUTTONS:
             (ROOT / f"btn-{key}-{name}.svg").write_text(fill(button_svg(key, label, hint, delay), theme), encoding="utf-8")
         (ROOT / f"sap-{name}.svg").write_text(fill(SAP_SVG, {**theme, **SAP_TILE[name]}), encoding="utf-8")
