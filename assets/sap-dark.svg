@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="256" viewBox="0 0 640 256" role="img" aria-label="SAP Fiori e SAP MM">
+<title>SAP Fiori · MM</title>
+<defs>
+  <linearGradient id="sap" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#00B8F1"/><stop offset="1" stop-color="#1E5FBB"/></linearGradient>
+  <linearGradient id="gloss" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.55"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+  <clipPath id="logo"><path d="M30 64H232L142 192H30Z"/></clipPath>
+</defs>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes gloss { 0% { transform: translateX(-120px); } 45%, 100% { transform: translateX(260px); } }
+  .gloss { animation: gloss 4.5s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .gloss { animation: none; opacity: 0; } }
+</style>
+<rect width="640" height="256" rx="60" fill="#242938"/>
+<path d="M30 64H232L142 192H30Z" fill="url(#sap)"/>
+<g clip-path="url(#logo)"><rect class="gloss" x="0" y="60" width="70" height="140" fill="url(#gloss)" transform="skewX(-18)"/></g>
+<text x="46" y="146" class="sans" font-size="50" font-weight="800" font-style="italic" fill="#FFFFFF" letter-spacing="-1">SAP</text>
+<text x="250" y="152" class="sans" font-size="76" font-weight="700" fill="#FFFFFF">Fiori<tspan fill="#9BA3B4" font-weight="400"> · </tspan>MM</text>
+</svg>

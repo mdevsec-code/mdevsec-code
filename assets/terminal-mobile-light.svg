@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="628" viewBox="0 0 640 628" role="img" aria-label="Terminal: whoami, o que faço agora, projetos e lema">
+<title>Murilo de Souza no terminal</title>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes typeIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0px); } }
+  .line { opacity: 0; animation: typeIn 0.35s ease-out forwards; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .caret { opacity: 0; animation: typeIn 0.2s ease-out 7.40s forwards, blink 1.05s steps(1) 7.40s infinite; }
+  @media (prefers-reduced-motion: reduce) { .line, .caret { animation: none !important; opacity: 1; } }
+</style>
+<rect x="0.5" y="0.5" width="639" height="627" rx="16" fill="#F6F8FA" stroke="#D0D7DE"/>
+<path d="M0.5 16.5a16 16 0 0 1 16-16h607a16 16 0 0 1 16 16V44H0.5Z" fill="#FFFFFF" stroke="#D0D7DE"/>
+<circle cx="28" cy="22" r="7" fill="#FF5F57"/><circle cx="52" cy="22" r="7" fill="#FEBC2E"/><circle cx="76" cy="22" r="7" fill="#28C840"/>
+<text x="320" y="27" text-anchor="middle" class="mono" font-size="13" fill="#59636E">murilo@engenova: ~ — zsh</text>
+<g class="mono" font-size="22" xml:space="preserve">
+<text class="line" x="32" y="94" style="animation-delay:0.40s"><tspan fill="#1A7F37">murilo</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">whoami</tspan></text>
+<text class="line" x="32" y="130" style="animation-delay:1.15s"><tspan fill="#59636E">Murilo de Souza</tspan></text>
+<text class="line" x="32" y="166" style="animation-delay:1.55s"><tspan fill="#59636E">full-stack dev · dados &amp; BI</tspan></text>
+<text class="line" x="32" y="202" style="animation-delay:1.95s"><tspan fill="#1A7F37">murilo</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">cat agora.txt</tspan></text>
+<text class="line" x="32" y="238" style="animation-delay:2.70s"><tspan fill="#59636E">BI, processos e automação</tspan></text>
+<text class="line" x="32" y="274" style="animation-delay:3.10s"><tspan fill="#59636E">na ENGENOVA, fábrica da BYD</tspan></text>
+<text class="line" x="32" y="310" style="animation-delay:3.50s"><tspan fill="#1A7F37">murilo</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">ls projetos/</tspan></text>
+<text class="line" x="32" y="346" style="animation-delay:4.25s"><tspan fill="#0969DA" font-weight="600">falcao-saude-ocupacional/</tspan></text>
+<text class="line" x="32" y="382" style="animation-delay:4.65s"><tspan fill="#0969DA" font-weight="600">falcao-erp-suprimentos/</tspan></text>
+<text class="line" x="32" y="418" style="animation-delay:5.05s"><tspan fill="#0969DA" font-weight="600">controle-de-epi/</tspan>   <tspan fill="#0969DA" font-weight="600">clinica-estetica/</tspan></text>
+<text class="line" x="32" y="454" style="animation-delay:5.45s"><tspan fill="#1A7F37">murilo</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">echo $LEMA</tspan></text>
+<text class="line" x="32" y="490" style="animation-delay:6.20s"><tspan fill="#9A6700" font-style="italic">“Quando a ferramenta ideal</tspan></text>
+<text class="line" x="32" y="526" style="animation-delay:6.60s"><tspan fill="#9A6700" font-style="italic">não está disponível,</tspan></text>
+<text class="line" x="32" y="562" style="animation-delay:7.00s"><tspan fill="#9A6700" font-style="italic">eu construo uma.”</tspan></text>
+<text class="caret" x="32" y="598"><tspan fill="#1A7F37">murilo</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#0969DA">▍</tspan></text>
+</g>
+</svg>

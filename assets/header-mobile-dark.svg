@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" role="img" aria-label="Murilo de Souza — Full-Stack Developer, Dados, BI e Automação">
+<title>Murilo de Souza — Full-Stack Developer · Dados, BI e Automação</title>
+<defs>
+  <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#21262D" stroke-width="1"/></pattern>
+  <pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="#30363D" stroke-width="1"/></pattern>
+  <radialGradient id="glowA"><stop offset="0" stop-color="#2F81F7" stop-opacity="0.30"/><stop offset="1" stop-color="#2F81F7" stop-opacity="0"/></radialGradient>
+  <radialGradient id="glowB"><stop offset="0" stop-color="#A371F7" stop-opacity="0.26"/><stop offset="1" stop-color="#A371F7" stop-opacity="0"/></radialGradient>
+  <linearGradient id="nameGrad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#2F81F7"/><stop offset="1" stop-color="#A371F7"/></linearGradient>
+  <radialGradient id="dotGlow"><stop offset="0" stop-color="#2F81F7" stop-opacity="0.9"/><stop offset="1" stop-color="#2F81F7" stop-opacity="0"/></radialGradient>
+  <clipPath id="frame"><rect width="640" height="440" rx="20"/></clipPath>
+  <clipPath id="typing"><rect x="36" y="168" width="0" height="40">
+    <animate attributeName="width" from="0" to="580" begin="1.5s" dur="1.6s" fill="freeze"/>
+  </rect></clipPath>
+</defs>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes drift { 0%, 100% { transform: translate(0px, 0px); } 50% { transform: translate(30px, -16px); } }
+  .glowA { animation: drift 10s ease-in-out infinite; }
+  .glowB { animation: drift 13s ease-in-out infinite reverse; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes paint { to { fill-opacity: 1; stroke-opacity: 0; } }
+  .name { fill: url(#nameGrad); fill-opacity: 0; stroke: #2F81F7; stroke-width: 1.2; stroke-dasharray: 1400; stroke-dashoffset: 1400;
+          animation: draw 2.2s ease-out forwards, paint 0.9s ease-out 1.7s forwards; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .caret { animation: blink 1.05s steps(1) infinite; }
+  @keyframes rotate { 0% { opacity: 0; transform: translateY(10px); } 4%, 30% { opacity: 1; transform: translateY(0px); } 34%, 100% { opacity: 0; transform: translateY(-10px); } }
+  .role { opacity: 0; animation: rotate 10.5s ease-in-out infinite both; }
+  .r1 { animation-delay: 3.4s; } .r2 { animation-delay: 6.9s; } .r3 { animation-delay: 10.4s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0px); } }
+  .late { opacity: 0; animation: fadeUp 0.8s ease-out 3.2s forwards; }
+  @keyframes lit { 0%, 22%, 100% { stroke: #30363D; } 6%, 14% { stroke: #2F81F7; } }
+  .node { animation: lit 5s linear infinite; }
+  .n2 { animation-delay: 1.25s; } .n3 { animation-delay: 2.5s; } .n4 { animation-delay: 3.75s; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .name { fill-opacity: 1; stroke-opacity: 0; stroke-dashoffset: 0; }
+    .late, .r1 { opacity: 1; }
+  }
+</style>
+<g clip-path="url(#frame)">
+  <rect width="640" height="440" fill="#0D1117"/>
+  <rect width="640" height="440" fill="url(#g)" opacity="0.7"/>
+  <rect width="640" height="440" fill="url(#G)" opacity="0.8"/>
+  <circle class="glowA" cx="140" cy="100" r="220" fill="url(#glowA)"/>
+  <circle class="glowB" cx="540" cy="360" r="240" fill="url(#glowB)"/>
+  <g stroke="#8B949E" stroke-width="1.2" opacity="0.7">
+    <path d="M590 30h20M600 20v20"/>
+  </g>
+</g>
+<rect x="0.5" y="0.5" width="639" height="439" rx="20" fill="none" stroke="#30363D"/>
+
+<text x="38" y="62" class="mono" font-size="19" fill="#8B949E">~/mdevsec-code <tspan fill="#2F81F7">$</tspan> whoami<tspan class="caret" fill="#2F81F7"> ▍</tspan></text>
+<text x="34" y="140" class="serif name" font-size="64" font-weight="700" letter-spacing="-1">Murilo de Souza</text>
+<g clip-path="url(#typing)">
+  <text x="38" y="196" class="sans" font-size="25" fill="#E6EDF3">Full-Stack · Dados, BI &amp; Automação</text>
+</g>
+<g class="mono" font-size="21" fill="#2F81F7">
+  <text class="role r1" x="38" y="246">› React · TS · NestJS · Prisma</text>
+  <text class="role r2" x="38" y="246">› Python · SQL · BI · SAP Fiori</text>
+  <text class="role r3" x="38" y="246">› Dados viram decisão</text>
+</g>
+<text class="mono late" x="38" y="288" font-size="17" fill="#8B949E">◉ Camaçari, BA · ENGENOVA (BYD)</text>
+
+<g class="late">
+  <path id="flow" d="M60 370 H580" fill="none" stroke="#30363D" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle r="14" fill="url(#dotGlow)"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#flow"/></animateMotion></circle>
+  <circle r="5" fill="#2F81F7"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#flow"/></animateMotion></circle>
+  <g class="mono" font-size="15" font-weight="600" text-anchor="middle">
+    <rect class="node n1" x="24" y="348" width="128" height="44" rx="10" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+    <text x="88" y="375" fill="#E6EDF3">DADOS</text>
+    <rect class="node n2" x="176" y="348" width="128" height="44" rx="10" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+    <text x="240" y="375" fill="#E6EDF3">API</text>
+    <rect class="node n3" x="328" y="348" width="138" height="44" rx="10" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+    <text x="397" y="375" fill="#E6EDF3">DASHBOARD</text>
+    <rect class="node n4" x="490" y="348" width="128" height="44" rx="10" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+    <text x="554" y="375" fill="#E6EDF3">DECISÃO</text>
+  </g>
+  <text x="320" y="420" text-anchor="middle" class="mono" font-size="12" letter-spacing="3" fill="#8B949E">FLUXO · DADO → DECISÃO</text>
+</g>
+</svg>
