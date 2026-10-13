@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Murilo de Souza — Full-Stack Developer, Dados, BI e Automação">
+<title>Murilo de Souza — Full-Stack Developer · Dados, BI e Automação</title>
+<defs>
+  <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#EAEEF2" stroke-width="1"/></pattern>
+  <pattern id="G" width="120" height="120" patternUnits="userSpaceOnUse"><path d="M120 0H0V120" fill="none" stroke="#D0D7DE" stroke-width="1"/></pattern>
+  <radialGradient id="glowA"><stop offset="0" stop-color="#0969DA" stop-opacity="0.30"/><stop offset="1" stop-color="#0969DA" stop-opacity="0"/></radialGradient>
+  <radialGradient id="glowB"><stop offset="0" stop-color="#8250DF" stop-opacity="0.26"/><stop offset="1" stop-color="#8250DF" stop-opacity="0"/></radialGradient>
+  <linearGradient id="nameGrad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#0969DA"/><stop offset="1" stop-color="#8250DF"/></linearGradient>
+  <radialGradient id="dotGlow"><stop offset="0" stop-color="#0969DA" stop-opacity="0.9"/><stop offset="1" stop-color="#0969DA" stop-opacity="0"/></radialGradient>
+  <clipPath id="frame"><rect width="1200" height="360" rx="20"/></clipPath>
+  <clipPath id="typing"><rect x="60" y="196" width="0" height="44">
+    <animate attributeName="width" from="0" to="660" begin="1.5s" dur="1.9s" fill="freeze"/>
+  </rect></clipPath>
+</defs>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes drift { 0%, 100% { transform: translate(0px, 0px); } 50% { transform: translate(46px, -22px); } }
+  .glowA { animation: drift 10s ease-in-out infinite; }
+  .glowB { animation: drift 13s ease-in-out infinite reverse; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes paint { to { fill-opacity: 1; stroke-opacity: 0; } }
+  .name { fill: url(#nameGrad); fill-opacity: 0; stroke: #0969DA; stroke-width: 1.2; stroke-dasharray: 1600; stroke-dashoffset: 1600;
+          animation: draw 2.2s ease-out forwards, paint 0.9s ease-out 1.7s forwards; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .caret { animation: blink 1.05s steps(1) infinite; }
+  @keyframes rotate { 0% { opacity: 0; transform: translateY(10px); } 4%, 30% { opacity: 1; transform: translateY(0px); } 34%, 100% { opacity: 0; transform: translateY(-10px); } }
+  .role { opacity: 0; animation: rotate 10.5s ease-in-out infinite both; }
+  .r1 { animation-delay: 3.4s; } .r2 { animation-delay: 6.9s; } .r3 { animation-delay: 10.4s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0px); } }
+  .late { opacity: 0; animation: fadeUp 0.8s ease-out 3.2s forwards; }
+  @keyframes lit { 0%, 22%, 100% { stroke: #D0D7DE; } 6%, 14% { stroke: #0969DA; } }
+  .node { animation: lit 6s linear infinite; }
+  .n2 { animation-delay: 1.9s; } .n3 { animation-delay: 3s; } .n4 { animation-delay: 4.9s; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .name { fill-opacity: 1; stroke-opacity: 0; stroke-dashoffset: 0; }
+    .late, .r1 { opacity: 1; }
+  }
+</style>
+<g clip-path="url(#frame)">
+  <rect width="1200" height="360" fill="#FFFFFF"/>
+  <rect width="1200" height="360" fill="url(#g)" opacity="0.7"/>
+  <rect width="1200" height="360" fill="url(#G)" opacity="0.8"/>
+  <circle class="glowA" cx="240" cy="110" r="280" fill="url(#glowA)"/>
+  <circle class="glowB" cx="1000" cy="280" r="300" fill="url(#glowB)"/>
+  <g stroke="#59636E" stroke-width="1.2" opacity="0.7">
+    <path d="M30 40h20M40 30v20"/><path d="M1150 40h20M1160 30v20"/>
+    <path d="M1150 320h20M1160 310v20"/>
+  </g>
+  <g class="mono" font-size="11" fill="#59636E" opacity="0.8">
+    <text x="56" y="44">A1</text><text x="1126" y="44">A8</text>
+    <text x="1126" y="324">F8</text>
+  </g>
+</g>
+<rect x="0.5" y="0.5" width="1199" height="359" rx="20" fill="none" stroke="#D0D7DE"/>
+
+<text x="64" y="96" class="mono" font-size="16" fill="#59636E">~/mdevsec-code <tspan fill="#0969DA">$</tspan> whoami<tspan class="caret" fill="#0969DA"> ▍</tspan></text>
+<text x="60" y="176" class="serif name" font-size="78" font-weight="700" letter-spacing="-1">Murilo de Souza</text>
+<g clip-path="url(#typing)">
+  <text x="64" y="230" class="sans" font-size="27" fill="#1F2328">Full-Stack Developer · Dados, BI &amp; Automação</text>
+</g>
+<g class="mono" font-size="17" fill="#0969DA">
+  <text class="role r1" x="64" y="282">› React · TypeScript · NestJS · Prisma · PostgreSQL</text>
+  <text class="role r2" x="64" y="282">› Python · SQL · Dashboards de BI · SAP (Fiori, MM)</text>
+  <text class="role r3" x="64" y="282">› Transformo dados em decisão — e construo o que falta</text>
+</g>
+<text class="mono late" x="64" y="322" font-size="14" fill="#59636E">◉ Camaçari, BA · ENGENOVA Construções (unidade BYD)</text>
+
+<g class="late">
+  <text x="772" y="70" class="mono" font-size="12" letter-spacing="3" fill="#59636E">FLUXO · DADO → DECISÃO</text>
+  <path id="loop" d="M845 118 H1065 V258 H845 Z" fill="none" stroke="#D0D7DE" stroke-width="2" stroke-dasharray="6 6"/>
+  <g>
+    <circle r="14" fill="url(#dotGlow)"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#loop"/></animateMotion></circle>
+    <circle r="5" fill="#0969DA"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#loop"/></animateMotion></circle>
+  </g>
+  <g class="mono" font-size="15" font-weight="600" text-anchor="middle">
+    <rect class="node n1" x="772" y="96" width="146" height="44" rx="10" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="2"/>
+    <text x="845" y="123" fill="#1F2328">DADOS</text>
+    <rect class="node n2" x="992" y="96" width="146" height="44" rx="10" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="2"/>
+    <text x="1065" y="123" fill="#1F2328">API</text>
+    <rect class="node n3" x="992" y="236" width="146" height="44" rx="10" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="2"/>
+    <text x="1065" y="263" fill="#1F2328">DASHBOARD</text>
+    <rect class="node n4" x="772" y="236" width="146" height="44" rx="10" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="2"/>
+    <text x="845" y="263" fill="#1F2328">DECISÃO</text>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-label="Terminal: whoami, o que faço agora, projetos e lema">
+<title>Murilo de Souza no terminal</title>
+<style>
+
+  .mono { font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', monospace; }
+  .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif; }
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  @keyframes typeIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0px); } }
+  .line { opacity: 0; animation: typeIn 0.35s ease-out forwards; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .caret { opacity: 0; animation: typeIn 0.2s ease-out 5.60s forwards, blink 1.05s steps(1) 5.60s infinite; }
+  @media (prefers-reduced-motion: reduce) { .line, .caret { animation: none !important; opacity: 1; } }
+</style>
+<rect x="0.5" y="0.5" width="1199" height="379" rx="16" fill="#F6F8FA" stroke="#D0D7DE"/>
+<path d="M0.5 16.5a16 16 0 0 1 16-16h1167a16 16 0 0 1 16 16V44H0.5Z" fill="#FFFFFF" stroke="#D0D7DE"/>
+<circle cx="28" cy="22" r="7" fill="#FF5F57"/><circle cx="52" cy="22" r="7" fill="#FEBC2E"/><circle cx="76" cy="22" r="7" fill="#28C840"/>
+<text x="600" y="27" text-anchor="middle" class="mono" font-size="13" fill="#59636E">murilo@engenova: ~ — zsh</text>
+<g class="mono" font-size="18" xml:space="preserve">
+<text class="line" x="40" y="92" style="animation-delay:0.40s"><tspan fill="#1A7F37">murilo@engenova</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">whoami</tspan></text>
+<text class="line" x="40" y="126" style="animation-delay:1.15s"><tspan fill="#59636E">Murilo de Souza — full-stack dev, dados &amp; BI</tspan></text>
+<text class="line" x="40" y="160" style="animation-delay:1.70s"><tspan fill="#1A7F37">murilo@engenova</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">cat agora.txt</tspan></text>
+<text class="line" x="40" y="194" style="animation-delay:2.45s"><tspan fill="#59636E">BI, processos e automação na ENGENOVA, dentro da fábrica da BYD</tspan></text>
+<text class="line" x="40" y="228" style="animation-delay:3.00s"><tspan fill="#1A7F37">murilo@engenova</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">ls projetos/</tspan></text>
+<text class="line" x="40" y="262" style="animation-delay:3.75s"><tspan fill="#0969DA" font-weight="600">falcao-saude-ocupacional/</tspan>   <tspan fill="#0969DA" font-weight="600">falcao-erp-suprimentos/</tspan>   <tspan fill="#0969DA" font-weight="600">controle-de-epi/</tspan></text>
+<text class="line" x="40" y="296" style="animation-delay:4.30s"><tspan fill="#1A7F37">murilo@engenova</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#1F2328">echo $LEMA</tspan></text>
+<text class="line" x="40" y="330" style="animation-delay:5.05s"><tspan fill="#9A6700" font-style="italic">“Quando a ferramenta ideal não está disponível, eu construo uma.”</tspan></text>
+<text class="caret" x="40" y="364"><tspan fill="#1A7F37">murilo@engenova</tspan><tspan fill="#59636E">:</tspan><tspan fill="#0969DA">~</tspan><tspan fill="#59636E">$ </tspan><tspan fill="#0969DA">▍</tspan></text>
+</g>
+</svg>
