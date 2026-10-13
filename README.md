@@ -119,18 +119,49 @@
         <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" />
         <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
         <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
       </p>
     </td>
   </tr>
   <tr>
     <td width="100%">
-      <h3><a href="https://github.com/mdevsec-code/falcao-ERP-suprimentos-master">📦 Falcão ERP Suprimentos</a> <sub>(em desenvolvimento)</sub></h3>
+      <h3><a href="https://github.com/mdevsec-code/falcao-ERP-suprimentos-master">📦 Falcão ERP Suprimentos</a></h3>
       <p>
-        Sistema para o setor de Suprimentos da Falcão Construções e Engenharia — gerenciamento
-        de pedidos, boletos e processos de compras.
+        ERP do setor de Suprimentos da Falcão Construções e Engenharia: fornecedores avaliados,
+        banco de produtos com histórico de preços, <strong>solicitações de compra com aprovação em etapas</strong>,
+        <strong>contratos com aditivos</strong> e régua de vigência, <strong>contas a pagar</strong> com fluxo de caixa
+        e conciliação de nota fiscal, reembolsos com comprovantes, repositório de documentos e agenda
+        unificada. RBAC por perfil, trilha de auditoria, revisão de segurança e 3 idiomas (PT/EN/ZH).
       </p>
       <p>
+        <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
         <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
+        <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <h3><a href="https://github.com/mdevsec-code/Controle-de-EPI">🦺 Controle de Entrega de EPIs — ENGENOVA</a></h3>
+      <p>
+        Entrega de Equipamentos de Proteção Individual com <strong>assinatura do colaborador na tela</strong>
+        (QR Code do crachá, hash SHA-256 e comprovante), estoque por almoxarifado e local de armazenamento,
+        catálogo com validação de CA e auditoria completa — a rastreabilidade exigida pela NR-6, num app
+        responsivo do celular do almoxarife ao computador da gestão.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
+        <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" />
+        <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
       </p>
     </td>
   </tr>
