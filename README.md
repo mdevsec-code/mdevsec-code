@@ -16,22 +16,10 @@
 </picture>
 
 <p align="center">
-  <a href="https://linkedin.com/in/dev-murilo-de-souza"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="assets/btn-linkedin-light.svg">
-    <img alt="LinkedIn" src="assets/btn-linkedin-dark.svg" height="52">
-  </picture></a>
-  <a href="mailto:murilocerqueira361@gmail.com"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="assets/btn-email-light.svg">
-    <img alt="Email" src="assets/btn-email-dark.svg" height="52">
-  </picture></a>
-  <a href="#-projetos-em-destaque"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="assets/btn-projetos-light.svg">
-    <img alt="Projetos" src="assets/btn-projetos-dark.svg" height="52">
-  </picture></a>
-  <a href="https://www.google.com/maps/place/Cama%C3%A7ari,+BA"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="assets/btn-local-light.svg">
-    <img alt="Camaçari, BA" src="assets/btn-local-dark.svg" height="52">
-  </picture></a>
+  <a href="https://linkedin.com/in/dev-murilo-de-souza"><picture><source media="(prefers-color-scheme: light)" srcset="assets/btn-linkedin-light.svg"><img alt="LinkedIn" src="assets/btn-linkedin-dark.svg" height="52"></picture></a>
+  <a href="mailto:murilocerqueira361@gmail.com"><picture><source media="(prefers-color-scheme: light)" srcset="assets/btn-email-light.svg"><img alt="Email" src="assets/btn-email-dark.svg" height="52"></picture></a>
+  <a href="#-projetos-em-destaque"><picture><source media="(prefers-color-scheme: light)" srcset="assets/btn-projetos-light.svg"><img alt="Projetos" src="assets/btn-projetos-dark.svg" height="52"></picture></a>
+  <a href="https://www.google.com/maps/place/Cama%C3%A7ari,+BA"><picture><source media="(prefers-color-scheme: light)" srcset="assets/btn-local-light.svg"><img alt="Camaçari, BA" src="assets/btn-local-dark.svg" height="52"></picture></a>
 </p>
 
 <picture>
@@ -75,10 +63,7 @@ Desenvolvedor full-stack e profissional de dados, atuando na interseção entre 
 <p align="center">
   <b>Ferramentas e ERP</b><br><br>
   <img src="https://skillicons.dev/icons?i=git,github,githubactions,docker,vercel,vscode&perline=8" alt="Git, GitHub, GitHub Actions, Docker, Vercel, VS Code">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="assets/sap-light.svg">
-    <img alt="SAP Fiori e MM" src="assets/sap-dark.svg" height="48">
-  </picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="assets/sap-light.svg"><img alt="SAP Fiori e MM" src="assets/sap-dark.svg" height="48"></picture>
 </p>
 
 ## 🚀 Projetos em destaque
@@ -136,8 +121,8 @@ Entrega de EPIs com **assinatura do colaborador na tela** (QR Code do crachá, h
 ## 🎓 Formação e idiomas
 
 - 🎓 **Bacharelado em Sistemas de Informação** — UNIME · 8º semestre, conclusão prevista para breve
-- 🇧🇷 **Português** — nativo
-- 🇺🇸 **Inglês** — avançado (CNA Master e Platinum)
+- 💬 **Português** — nativo
+- 🌐 **Inglês** — avançado (CNA Master e Platinum)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
