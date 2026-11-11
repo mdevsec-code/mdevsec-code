@@ -1,7 +1,8 @@
-name: Cobrinha das contribuições
+name: Cobrinha e gráfico 3D das contribuições
 
 # Gera, todo dia, a animação da cobrinha comendo o gráfico de contribuições
-# (tema claro e escuro) e publica no branch `output`, de onde o README lê.
+# (tema claro e escuro) e o gráfico 3D das contribuições, e publica tudo no
+# branch `output`, de onde o README lê.
 on:
   schedule:
     - cron: '0 6 * * *'
@@ -29,11 +30,23 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
+      - name: Gerar gráfico 3D das contribuições
+        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Juntar o gráfico 3D ao que vai para o branch output
+        run: |
+          mkdir -p dist/3d
+          cp profile-3d-contrib/*.svg dist/3d/
+          ls dist/3d
+
       - name: Publicar no branch output
         uses: crazy-max/ghaction-github-pages@v5
         with:
           target_branch: output
           build_dir: dist
-          commit_message: 'chore: atualiza a cobrinha das contribuições'
+          commit_message: 'chore: atualiza a cobrinha e o gráfico 3D das contribuições'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1060" viewBox="0 0 640 1060" role="img" aria-label="neofetch — Nome: Murilo de Souza; Cargo: Full-Stack · Dados, BI &amp; Automação; Empresa: ENGENOVA — BI e Automação; Local: Fábrica da BYD · Camaçari/BA; Formação: Sist. de Informação · UNIME; Idiomas: PT nativo · EN avançado; Front: React · Vue · TS · Tailwind; Back: Node · NestJS · Express · Prisma; Dados: PostgreSQL · Python · SQL · BI; ERP: SAP Fiori · SAP MM. “Quando a ferramenta ideal não está disponível, eu construo uma.”">
+<title>neofetch — Nome: Murilo de Souza; Cargo: Full-Stack · Dados, BI &amp; Automação; Empresa: ENGENOVA — BI e Automação; Local: Fábrica da BYD · Camaçari/BA; Formação: Sist. de Informação · UNIME; Idiomas: PT nativo · EN avançado; Front: React · Vue · TS · Tailwind; Back: Node · NestJS · Express · Prisma; Dados: PostgreSQL · Python · SQL · BI; ERP: SAP Fiori · SAP MM. “Quando a ferramenta ideal não está disponível, eu construo uma.”</title>
+<style>
+  .sans { font-family: 'Segoe UI Variable Display', 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+  .mono { font-family: 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; }
+
+  @keyframes drift { 0%, 100% { transform: translate(0px, 0px) scale(1); } 50% { transform: translate(60px, 24px) scale(1.12); } }
+  .aur { transform-box: fill-box; transform-origin: center; animation: drift 14s ease-in-out infinite; }
+  .a2 { animation-duration: 18s; animation-direction: reverse; }
+  .a3 { animation-duration: 16s; animation-delay: -6s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
+  .rv { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
+
+  @keyframes blink { 50% { opacity: 0; } }
+  .caret { animation: blink 1.05s steps(1) infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before { animation: none !important; }
+    .rv { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<defs>
+  <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F2F5FF"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.1" fill="#C6D0EC" opacity="0.55"/></pattern>
+  <clipPath id="frame"><rect width="640" height="1060" rx="24"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="640" height="1060" fill="url(#bgG)"/>
+  <rect width="640" height="1060" fill="url(#dots)" opacity="0.6"/>
+  <g filter="url(#soft)" opacity="0.22">
+    <ellipse class="aur a1" cx="115.19999999999999" cy="212" rx="140.8" ry="339.2" fill="#0891B2"/>
+    <ellipse class="aur a2" cx="396.8" cy="53" rx="128" ry="275.6" fill="#7C3AED"/>
+    <ellipse class="aur a3" cx="576" cy="742" rx="115.19999999999999" ry="318" fill="#DB2777"/>
+  </g>
+</g><defs>
+  <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0891B2"/><stop offset="0.5" stop-color="#7C3AED"/><stop offset="1" stop-color="#DB2777"/></linearGradient>
+  <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="0" spreadMethod="repeat">
+    <stop offset="0" stop-color="#0891B2"/><stop offset="0.33" stop-color="#7C3AED"/><stop offset="0.66" stop-color="#DB2777"/><stop offset="1" stop-color="#0891B2"/>
+    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="320 0" dur="7s" repeatCount="indefinite"/>
+  </linearGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter>
+  <filter id="halo" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs><g clip-path="url(#frame)"><rect x="0" y="0" width="640" height="48" fill="#FFFFFF" fill-opacity="0.75"/></g>
+  <line x1="0" y1="48" x2="640" y2="48" stroke="#E1E6F4"/>
+  <circle cx="26" cy="24" r="6.5" fill="#FF5F57"/><circle cx="48" cy="24" r="6.5" fill="#FEBC2E"/><circle cx="70" cy="24" r="6.5" fill="#28C840"/>
+  <text x="320" y="29" text-anchor="middle" class="mono" font-size="15" fill="#566182">murilo@mdevsec: ~ — neofetch</text><text x="40" y="98" class="mono" font-size="19" fill="#566182"><tspan fill="#059669">murilo@mdevsec</tspan> <tspan fill="#0891B2">~</tspan> $ neofetch<tspan class="caret" fill="#0891B2"> ▍</tspan></text>
+  <ellipse cx="320" cy="290" rx="147.84" ry="47.04" fill="none" stroke="#C6D0EC" stroke-dasharray="4 7" transform="rotate(-18 320 290)"/>
+    <g transform="rotate(-18 320 290)"><circle r="6" fill="#DB2777"><animateMotion dur="6s" repeatCount="indefinite" path="M172.16 290 a147.84 47.04 0 1 0 295.68 0 a147.84 47.04 0 1 0 -295.68 0"/></circle></g>
+  <polygon points="320.0,178.0 417.0,234.0 417.0,346.0 320.0,402.0 223.0,346.0 223.0,234.0" fill="#F5F7FF" fill-opacity="0.7" stroke="url(#brand)" stroke-width="3" stroke-dasharray="706" stroke-dashoffset="706">
+    <animate attributeName="stroke-dashoffset" to="0" dur="2s" begin="0.2s" fill="freeze" calcMode="spline" keySplines="0.5 0 0.2 1" keyTimes="0;1"/>
+  </polygon>
+  <path d="M272.96 334.688 V245.312 L320 297.056 L367.04 245.312 V334.688" fill="none" stroke="url(#brand)" stroke-width="13.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#halo)"/>
+  <path d="M272.96 334.688 V245.312 L320 297.056 L367.04 245.312 V334.688" fill="none" stroke="url(#brand)" stroke-width="13.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="329" stroke-dashoffset="329">
+    <animate attributeName="stroke-dashoffset" to="0" dur="1.6s" begin="1s" fill="freeze"/>
+  </path>
+  <ellipse cx="320" cy="290" rx="147.84" ry="47.04" fill="none" stroke="#C6D0EC" stroke-dasharray="4 7" transform="rotate(38 320 290)"/>
+    <g transform="rotate(38 320 290)"><circle r="6" fill="#0891B2"><animateMotion dur="8s" repeatCount="indefinite" path="M172.16 290 a147.84 47.04 0 1 0 295.68 0 a147.84 47.04 0 1 0 -295.68 0"/></circle></g><text x="40" y="470" class="mono rv" style="animation-delay:.3s" font-size="22" font-weight="700"><tspan fill="#0891B2">murilo</tspan><tspan fill="#566182">@</tspan><tspan fill="#DB2777">mdevsec</tspan></text><rect x="40" y="488" width="300" height="2" fill="url(#brand)" class="rv" style="animation-delay:.4s"/><text x="40" y="520" class="mono rv" style="animation-delay:0.50s" font-size="20"><tspan fill="#0891B2" font-weight="700">Nome</tspan><tspan x="168" fill="#0B1022">Murilo de Souza</tspan></text><text x="40" y="560" class="mono rv" style="animation-delay:0.62s" font-size="20"><tspan fill="#0891B2" font-weight="700">Cargo</tspan><tspan x="168" fill="#0B1022">Full-Stack · Dados, BI &amp; Automação</tspan></text><text x="40" y="600" class="mono rv" style="animation-delay:0.74s" font-size="20"><tspan fill="#0891B2" font-weight="700">Empresa</tspan><tspan x="168" fill="#0B1022">ENGENOVA — BI e Automação</tspan></text><text x="40" y="640" class="mono rv" style="animation-delay:0.86s" font-size="20"><tspan fill="#0891B2" font-weight="700">Local</tspan><tspan x="168" fill="#0B1022">Fábrica da BYD · Camaçari/BA</tspan></text><text x="40" y="680" class="mono rv" style="animation-delay:0.98s" font-size="20"><tspan fill="#0891B2" font-weight="700">Formação</tspan><tspan x="168" fill="#0B1022">Sist. de Informação · UNIME</tspan></text><text x="40" y="720" class="mono rv" style="animation-delay:1.10s" font-size="20"><tspan fill="#0891B2" font-weight="700">Idiomas</tspan><tspan x="168" fill="#0B1022">PT nativo · EN avançado</tspan></text><text x="40" y="760" class="mono rv" style="animation-delay:1.22s" font-size="20"><tspan fill="#0891B2" font-weight="700">Front</tspan><tspan x="168" fill="#0B1022">React · Vue · TS · Tailwind</tspan></text><text x="40" y="800" class="mono rv" style="animation-delay:1.34s" font-size="20"><tspan fill="#0891B2" font-weight="700">Back</tspan><tspan x="168" fill="#0B1022">Node · NestJS · Express · Prisma</tspan></text><text x="40" y="840" class="mono rv" style="animation-delay:1.46s" font-size="20"><tspan fill="#0891B2" font-weight="700">Dados</tspan><tspan x="168" fill="#0B1022">PostgreSQL · Python · SQL · BI</tspan></text><text x="40" y="880" class="mono rv" style="animation-delay:1.58s" font-size="20"><tspan fill="#0891B2" font-weight="700">ERP</tspan><tspan x="168" fill="#0B1022">SAP Fiori · SAP MM</tspan></text><rect x="40" y="908" width="40" height="22" rx="4" fill="#0891B2" class="rv" style="animation-delay:1.80s"/><rect x="86" y="908" width="40" height="22" rx="4" fill="#7C3AED" class="rv" style="animation-delay:1.86s"/><rect x="132" y="908" width="40" height="22" rx="4" fill="#DB2777" class="rv" style="animation-delay:1.92s"/><rect x="178" y="908" width="40" height="22" rx="4" fill="#059669" class="rv" style="animation-delay:1.98s"/><rect x="224" y="908" width="40" height="22" rx="4" fill="#FACC15" class="rv" style="animation-delay:2.04s"/><rect x="270" y="908" width="40" height="22" rx="4" fill="#FB923C" class="rv" style="animation-delay:2.10s"/><rect x="316" y="908" width="40" height="22" rx="4" fill="#566182" class="rv" style="animation-delay:2.16s"/><rect x="362" y="908" width="40" height="22" rx="4" fill="#0B1022" class="rv" style="animation-delay:2.22s"/><text class="sans rv" style="animation-delay:2.3s" font-size="23" font-style="italic" fill="#0B1022"><tspan x="40" y="984">“Quando a ferramenta ideal não</tspan><tspan x="40" y="1018">está disponível, eu construo uma.”</tspan></text><rect x="0.5" y="0.5" width="639" height="1059" rx="24" fill="none" stroke="#C6D0EC"/>
+</svg>
