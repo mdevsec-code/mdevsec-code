@@ -93,16 +93,18 @@ function save(name, content) {
 
 // Gradiente da marca (ciano → violeta → rosa) e uma versão que "corre" na
 // horizontal, usada em títulos.
-function brandDefs(t, w = 1200) {
+function brandDefs(t, w = 1200, moving = false) {
   return `
   <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></linearGradient>
   <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${w / 2}" y2="0" spreadMethod="repeat">
     <stop offset="0" stop-color="${t.c1}"/><stop offset="0.33" stop-color="${t.c2}"/><stop offset="0.66" stop-color="${t.c3}"/><stop offset="1" stop-color="${t.c1}"/>
-  </linearGradient>`;
+${moving ? `    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="${w / 2} 0" dur="9s" repeatCount="indefinite"/>
+` : ""}  </linearGradient>`;
 }
 
 // Fundo comum: gradiente, auroras que flutuam e grade de pontos.
-function backdrop(t, w, h, rx = 24) {
+function backdrop(t, w, h, rx = 24, drift = false) {
+  const dr = (dx, dy, d) => (drift ? `<animateTransform attributeName="transform" type="translate" values="0 0;${dx} ${dy};0 0" dur="${d}s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>` : '');
   return `
 <defs>
   <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.bg}"/><stop offset="1" stop-color="${t.bg2}"/></linearGradient>
@@ -114,8 +116,8 @@ function backdrop(t, w, h, rx = 24) {
 <g clip-path="url(#frame)">
   <rect width="${w}" height="${h}" fill="url(#bgG)"/>
   <rect width="${w}" height="${h}" fill="url(#dots)" opacity="0.6"/>
-  <ellipse cx="${w * 0.16}" cy="${h * 0.12}" rx="${w * 0.42}" ry="${h * 0.62}" fill="url(#aurA)"/>
-  <ellipse cx="${w * 0.92}" cy="${h * 0.86}" rx="${w * 0.36}" ry="${h * 0.6}" fill="url(#aurB)"/>
+  <ellipse cx="${w * 0.16}" cy="${h * 0.12}" rx="${w * 0.42}" ry="${h * 0.62}" fill="url(#aurA)">${dr(w * 0.06, h * 0.08, 18)}</ellipse>
+  <ellipse cx="${w * 0.92}" cy="${h * 0.86}" rx="${w * 0.36}" ry="${h * 0.6}" fill="url(#aurB)">${dr(-w * 0.07, -h * 0.06, 23)}</ellipse>
 </g>`;
 }
 
@@ -129,11 +131,14 @@ function frameStroke(t, w, h, rx = 24) {
 }
 
 // Borda com um "cometa" de luz percorrendo o contorno.
-function cometBorder(w, h, rx, stroke, dur = 9, len = 260, begin = 0.4) {
+// Entre uma volta e outra não há animação ativa: a imagem não é redesenhada.
+let cometSeq = 0;
+function cometBorder(w, h, rx, stroke, dur = 9, len = 260, begin = 0.4, gap = 6) {
   const per = Math.round(2 * (w + h) - (8 - 2 * Math.PI) * rx);
+  const id = `cm${++cometSeq}`, d = (dur * 0.5).toFixed(2);
   return `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${rx}" fill="none" stroke="${stroke}" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="${len} ${per - len}" opacity="0">
-    <animate attributeName="stroke-dashoffset" from="0" to="${-per}" dur="${(dur * 0.45).toFixed(2)}s" begin="${begin}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1"/>
-    <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.8;1" dur="${(dur * 0.45 + 0.3).toFixed(2)}s" begin="${begin}s" fill="freeze"/>
+    <animate id="${id}" attributeName="stroke-dashoffset" from="0" to="${-per}" dur="${d}s" begin="${begin}s;${id}.end+${gap}s" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.82;1" dur="${d}s" begin="${id}.begin"/>
   </rect>`;
 }
 
@@ -144,7 +149,8 @@ function stars(t, w, h, n, seed, yMax = h) {
   for (let i = 0; i < n; i++) {
     const x = (r() * w).toFixed(1), y = (r() * yMax).toFixed(1), s = (0.6 + r() * 1.4).toFixed(2);
     const d = (2.5 + r() * 4).toFixed(2), b = (-r() * 5).toFixed(2);
-    out += `<circle cx="${x}" cy="${y}" r="${s}" fill="${t.star}" opacity="${(0.25 + (+b * -0.12)).toFixed(2)}"/>`;
+    const o = (0.25 + (+b * -0.12)).toFixed(2);
+    out += i % 3 ? `<circle cx="${x}" cy="${y}" r="${s}" fill="${t.star}" opacity="${o}"/>` : `<circle cx="${x}" cy="${y}" r="${s}" fill="${t.star}" opacity="${o}"><animate attributeName="opacity" values="${o};0.06;${o}" dur="${(+d * 1.6).toFixed(1)}s" begin="${b}s" repeatCount="indefinite"/></circle>`;
   }
   return `<g opacity="${t.name === 'dark' ? 0.8 : 0.35}">${out}</g>`;
 }
@@ -155,7 +161,7 @@ function floor(t, w, h, horizon, vx, id = 'fl') {
   let vert = '';
   for (let i = -12; i <= 12; i++) vert += `<line x1="${vx + i * 26}" y1="${horizon}" x2="${vx + i * 210}" y2="${h + 40}"/>`;
   let hor = '';
-  const N = 5, dur = 6;
+  const N = 7, dur = 7;
   for (let i = 0; i < N; i++) {
     const ph = i / N, py = (horizon + (h + 20 - horizon) * ph * ph).toFixed(1);
     hor += `<line x1="0" x2="${w}" y1="${py}" y2="${py}">
@@ -199,11 +205,12 @@ function heroCss(t) {
   .role { opacity: 0; animation: role 10.5s ease-in-out infinite both; }
   .r1 { animation-delay: 2.6s; } .r2 { animation-delay: 6.1s; } .r3 { animation-delay: 9.6s; }
   @keyframes bob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-  .bob, .bob2, .bob3 { }
+  .bob { animation: bob 6s ease-in-out infinite; } .bob2 { animation: bob 7s ease-in-out -2s infinite; } .bob3 { animation: bob 6.5s ease-in-out -4s infinite; }
   @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
   .spark { stroke-dasharray: 900; animation: draw 2.4s ease-out 1.2s both; }
   @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-  .bar { transform-box: fill-box; transform-origin: bottom; animation: grow 1.1s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.62); } }
+  .bar { transform-box: fill-box; transform-origin: bottom; animation: grow 1.1s cubic-bezier(.2,.7,.2,1) both, breathe 3.8s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce) { .r1 { opacity: 1; } .spark { stroke-dashoffset: 0; } }
 `;
 }
@@ -239,13 +246,13 @@ function holoCard(t, x, y) {
   const area = `${line} L330 154 L20 154 Z`;
   let bars = '';
   [38, 56, 30, 64, 48, 72, 52].forEach((bh, i) => {
-    bars += `<rect class="bar" style="animation-delay:${(1.4 + i * 0.08).toFixed(2)}s" x="${24 + i * 22}" y="${236 - bh}" width="13" height="${bh}" rx="3" fill="url(#barG)"/>`;
+    bars += `<rect class="bar" style="animation-delay:${(1.4 + i * 0.08).toFixed(2)}s,${(2.6 + i * 0.35).toFixed(2)}s" x="${24 + i * 22}" y="${236 - bh}" width="13" height="${bh}" rx="3" fill="url(#barG)"/>`;
   });
   const steps = ['DADOS', 'API', 'BI', 'DECISÃO'];
   let flow = '';
   steps.forEach((s, i) => {
     const fx = 196 + (i % 2) * 74, fy = 176 + Math.floor(i / 2) * 36;
-    flow += `<rect x="${fx}" y="${fy}" width="66" height="26" rx="7" fill="${t.panel2}" stroke="${t.line2}"><animate attributeName="stroke" values="${t.line2};${t.c1};${t.line2};${t.line2}" keyTimes="0;0.1;0.25;1" dur="2.4s" begin="${(2 + i * 0.5).toFixed(1)}s"/></rect>
+    flow += `<rect x="${fx}" y="${fy}" width="66" height="26" rx="7" fill="${t.panel2}" stroke="${t.line2}"><animate attributeName="stroke" values="${t.line2};${t.c1};${t.line2};${t.line2}" keyTimes="0;0.1;0.25;1" dur="4s" begin="${(2 + i).toFixed(1)}s" repeatCount="indefinite"/></rect>
       <text x="${fx + 33}" y="${fy + 17}" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="${t.text}">${s}</text>`;
   });
   return `
@@ -259,13 +266,14 @@ function holoCard(t, x, y) {
   ${cometBorder(w, h, 18, 'url(#brand)', 7, 180)}
   <circle cx="22" cy="24" r="4.5" fill="${t.c3}"/><circle cx="38" cy="24" r="4.5" fill="${t.c2}"/><circle cx="54" cy="24" r="4.5" fill="${t.c1}"/>
   <text x="72" y="28" class="mono" font-size="11.5" fill="${t.muted}">live.dashboard</text>
-  <circle cx="${w - 60}" cy="24" r="5" fill="${t.ok}"/>
+  <circle cx="${w - 60}" cy="24" r="5" fill="${t.ok}"/><circle cx="${w - 60}" cy="24" r="5" fill="none" stroke="${t.ok}" stroke-width="2"><animate attributeName="r" values="5;14" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="2s" repeatCount="indefinite"/></circle>
   <text x="${w - 50}" y="28" class="mono" font-size="11" fill="${t.ok}">ao vivo</text>
   <line x1="20" y1="44" x2="${w - 20}" y2="44" stroke="${t.line}"/>
   <g stroke="${t.line}" stroke-dasharray="3 5"><line x1="20" y1="80" x2="330" y2="80"/><line x1="20" y1="116" x2="330" y2="116"/><line x1="20" y1="152" x2="330" y2="152"/></g>
   <path d="${area}" fill="url(#areaG)"/>
   <path class="spark" d="${line}" fill="none" stroke="url(#brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="${pts[pts.length - 1][0] + 20}" cy="${pts[pts.length - 1][1] + 62}" r="6" fill="${t.c2}" stroke="${t.bg}" stroke-width="2"/>
+  <circle r="4.5" fill="${t.c2}" opacity="0"><set attributeName="opacity" to="0.95" begin="3.6s"/><animateMotion dur="4.5s" begin="3.6s" repeatCount="indefinite"><mpath href="#sparkPath"/></animateMotion></circle>
   <text x="22" y="70" class="mono" font-size="11" fill="${t.muted}">produtividade · 12 meses</text>
   ${bars}
   ${flow}
@@ -286,7 +294,7 @@ function hero(t, mobile) {
     </g></g>`;
   };
 
-  let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}</defs>`;
+  let body = backdrop(t, W, H, 24, true) + `<defs>${brandDefs(t, W, true)}</defs>`;
   body += `<g clip-path="url(#frame)">${stars(t, W, horizon - 10, mobile ? 40 : 70, 7, horizon - 10)}</g>`;
   body += floor(t, W, H, horizon, mobile ? 320 : 600);
 
@@ -365,15 +373,16 @@ const BUTTONS = [
 function button(t, b, i) {
   const W = 250, H = 64;
   const css = `${AURORA_CSS}
-  @keyframes sweep { from { transform: translateX(-140px) skewX(-20deg); } to { transform: translateX(${W + 40}px) skewX(-20deg); } }
-  .shine { animation: sweep 1.6s ease-in-out ${(0.6 + i * 0.25).toFixed(2)}s 1 both; }`;
+  @keyframes sweep { 0% { transform: translateX(-140px) skewX(-20deg); } 28%, 100% { transform: translateX(${W + 40}px) skewX(-20deg); } }
+  .shine { animation: sweep 6s ease-in-out ${(0.6 + i * 0.4).toFixed(2)}s infinite both; }`;
   const ic = b.glyph === 'in'
     ? `<text x="38" y="${H / 2 + 7}" text-anchor="middle" class="sans" font-size="19" font-weight="800" fill="#fff">in</text>`
     : icon(b.glyph, 27, H / 2 - 11, 22, '#fff', 2.2);
   const body = `
 <defs>
   ${brandDefs(t, W)}
-  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></linearGradient>
+  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="8s" begin="${-i * 2}s" repeatCount="indefinite"/></linearGradient>
   <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="${t.name === 'dark' ? 0.16 : 0.55}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <clipPath id="btn"><rect x="2" y="2" width="${W - 4}" height="${H - 4}" rx="${H / 2 - 2}"/></clipPath>
 </defs>
@@ -401,8 +410,8 @@ const SECTIONS = [
 function sectionTitle(t, s, mobile) {
   const W = mobile ? 640 : 1000, H = mobile ? 118 : 96;
   const css = `${AURORA_CSS}
-  @keyframes scan { from { transform: translateX(-200px); } to { transform: translateX(${W + 40}px); } }
-  .scan { animation: scan 1.8s cubic-bezier(.6,0,.3,1) 0.2s 1 both; }`;
+  @keyframes scan { 0% { transform: translateX(-200px); } 40%, 100% { transform: translateX(${W + 40}px); } }
+  .scan { animation: scan 5s cubic-bezier(.6,0,.3,1) 0.2s infinite both; }`;
   let body = `<defs>${brandDefs(t, W)}
   <linearGradient id="seg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.c1}" stop-opacity="0"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}" stop-opacity="0"/></linearGradient></defs>`;
   if (mobile) {
@@ -455,7 +464,8 @@ function monogram(t, cx, cy, r) {
   const s = r * 0.42;
   const m = `M${cx - s} ${cy + s * 0.95} V${cy - s * 0.95} L${cx} ${cy + s * 0.15} L${cx + s} ${cy - s * 0.95} V${cy + s * 0.95}`;
   const orbit = (rot) => `<ellipse cx="${cx}" cy="${cy}" rx="${r * 1.32}" ry="${r * 0.42}" fill="none" stroke="${t.line2}" stroke-dasharray="4 7" transform="rotate(${rot} ${cx} ${cy})"/>
-    <g transform="rotate(${rot} ${cx} ${cy})"><circle cx="${rot < 0 ? cx - r * 1.32 : cx + r * 1.32}" cy="${cy}" r="6" fill="${rot < 0 ? t.c3 : t.c1}"/></g>`;
+    <g transform="rotate(${rot} ${cx} ${cy})"><circle cx="${rot < 0 ? cx - r * 1.32 : cx + r * 1.32}" cy="${cy}" r="6" fill="${rot < 0 ? t.c3 : t.c1}"><set attributeName="opacity" to="0" begin="0.6s"/></circle>
+      <circle r="6" fill="${rot < 0 ? t.c3 : t.c1}" opacity="0"><set attributeName="opacity" to="1" begin="0.6s"/><animateMotion dur="${rot < 0 ? 7 : 9}s" begin="0.6s" repeatCount="indefinite" path="M${rot < 0 ? cx - r * 1.32 : cx + r * 1.32} ${cy} a${r * 1.32} ${r * 0.42} 0 1 ${rot < 0 ? 0 : 1} ${rot < 0 ? r * 2.64 : -r * 2.64} 0 a${r * 1.32} ${r * 0.42} 0 1 ${rot < 0 ? 0 : 1} ${rot < 0 ? -r * 2.64 : r * 2.64} 0"/></circle></g>`;
   return `
   ${orbit(-18)}
   <polygon points="${hex}" fill="${t.panel2}" fill-opacity="0.7" stroke="url(#brand)" stroke-width="3" stroke-dasharray="${(r * 6.3).toFixed(0)}" stroke-dashoffset="0">
@@ -477,7 +487,7 @@ function neofetch(t, mobile) {
   const x0 = mobile ? 40 : 470, y0 = mobile ? 520 : 150, kw = mobile ? 128 : 112;
   const palette = [t.c1, t.c2, t.c3, t.ok, '#FACC15', '#FB923C', t.muted, t.text];
 
-  let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}</defs>`;
+  let body = backdrop(t, W, H, 24, true) + `<defs>${brandDefs(t, W)}</defs>`;
   body += `<g clip-path="url(#frame)"><rect x="0" y="0" width="${W}" height="48" fill="${t.panel}" fill-opacity="0.75"/></g>
   <line x1="0" y1="48" x2="${W}" y2="48" stroke="${t.line}"/>
   <circle cx="26" cy="24" r="6.5" fill="#FF5F57"/><circle cx="48" cy="24" r="6.5" fill="#FEBC2E"/><circle cx="70" cy="24" r="6.5" fill="#28C840"/>
@@ -539,7 +549,7 @@ function services(t, mobile) {
     });
     body += `<g transform="translate(${x} ${y})"><g class="rv" style="animation-delay:${(i * 0.12).toFixed(2)}s">
       <rect x="1" y="1" width="${tw - 2}" height="${th - 2}" rx="20" fill="url(#tileG)" stroke="${t.line2}"/>
-      ${cometBorder(tw, th, 20, 'url(#brand)', 8, 160, 0.3 + i * 0.15)}
+      ${cometBorder(tw, th, 20, 'url(#brand)', 6, 160, 0.4 + i * 1.6, 7)}
       <rect x="28" y="28" width="${ic}" height="${ic}" rx="15" fill="url(#brand)"/>
       ${icon(s.icon, 28 + ic * 0.24, 28 + ic * 0.24, ic * 0.52, '#fff', 2.2)}
       <text x="${textX}" y="${titleY}" class="sans" font-size="${tf}" font-weight="800" fill="${t.text}">${esc(s.title)}</text>
@@ -571,7 +581,7 @@ function stackOrbit(t) {
   const W = 1200, H = 640, cx = 600, cy = 296;
   const rings = [[210, 74, 46], [370, 132, 64], [510, 196, 88]];
   const css = AURORA_CSS;
-  let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}
+  let body = backdrop(t, W, H, 24, true) + `<defs>${brandDefs(t, W)}
     <radialGradient id="coreGlow"><stop offset="0.4" stop-color="${t.c1}" stop-opacity="0.35"/><stop offset="1" stop-color="${t.c1}" stop-opacity="0"/></radialGradient>
     <radialGradient id="core" cx="0.35" cy="0.3"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.25" stop-color="${t.c1}"/><stop offset="0.7" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></radialGradient></defs>`;
   body += `<g clip-path="url(#frame)">${stars(t, W, H, 60, 21)}</g>`;
@@ -580,6 +590,8 @@ function stackOrbit(t) {
   });
   body += `<circle cx="${cx}" cy="${cy}" r="96" fill="url(#coreGlow)"/>
     <circle cx="${cx}" cy="${cy}" r="62" fill="none" stroke="${t.c1}" stroke-opacity="0.35" stroke-width="1.5"/>
+    <circle cx="${cx}" cy="${cy}" r="50" fill="none" stroke="${t.c1}" stroke-width="1.6" opacity="0"><animate attributeName="r" values="50;120" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.55;0" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="${cx}" cy="${cy}" r="50" fill="none" stroke="${t.c2}" stroke-width="1.6" opacity="0"><animate attributeName="r" values="50;120" dur="4s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.55;0" dur="4s" begin="2s" repeatCount="indefinite"/></circle>
     <circle cx="${cx}" cy="${cy}" r="46" fill="url(#core)"/>
     <text x="${cx}" y="${cy + 10}" text-anchor="middle" class="mono" font-size="28" font-weight="800" fill="#fff">&lt;/&gt;</text>`;
   // Chips percorrendo as órbitas: animateMotion só leva o chip pela elipse,
@@ -593,8 +605,11 @@ function stackOrbit(t) {
       const px = cx + rx * Math.cos(th), py = cy + ry * Math.sin(th);
       const dx = (-2 * rx * Math.cos(th)).toFixed(1), dy = (-2 * ry * Math.sin(th)).toFixed(1);
       const path = `M0 0 a${rx} ${ry} 0 1 ${dir} ${dx} ${dy} a${rx} ${ry} 0 1 ${dir} ${-dx} ${-dy}`;
-      body += `<g transform="translate(${px.toFixed(1)} ${py.toFixed(1)})"><g>${chip(t, label, color, 14, 0, 0).svg}
+      const depth = (a) => (0.7 + 0.3 * Math.sin(a)).toFixed(2);
+      const fade = Array.from({ length: 9 }, (_, k) => depth(th + (dir ? 1 : -1) * (2 * Math.PI * k) / 8)).join(';');
+      body += `<g transform="translate(${px.toFixed(1)} ${py.toFixed(1)})"><g opacity="${depth(th)}">${chip(t, label, color, 14, 0, 0).svg}
         <animateMotion dur="${dur}s" begin="0s" repeatCount="indefinite" path="${path}"/>
+        <animate attributeName="opacity" values="${fade}" dur="${dur}s" begin="0s" repeatCount="indefinite"/>
       </g></g>`;
     });
   });
@@ -707,7 +722,7 @@ function seminarArt(t, a, w, h) {
   let answers = '';
   btn.forEach((c, i) => {
     const bx = px + 12 + (i % 2) * ((pw - 34) / 2 + 10), by = py + ph * 0.34 + Math.floor(i / 2) * (ph * 0.15);
-    answers += `<rect x="${bx}" y="${by}" width="${(pw - 34) / 2}" height="${ph * 0.12}" rx="8" fill="${c}"><animate attributeName="opacity" values="1;1;0.35;1" keyTimes="0;0.55;0.6;1" dur="2s" begin="${(1 + i * 0.2).toFixed(1)}s"/></rect>`;
+    answers += `<rect x="${bx}" y="${by}" width="${(pw - 34) / 2}" height="${ph * 0.12}" rx="8" fill="${c}"><animate attributeName="opacity" values="1;1;0.35;1" keyTimes="0;0.55;0.6;1" dur="4s" begin="${(1 + i * 0.25).toFixed(2)}s" repeatCount="indefinite"/></rect>`;
   });
   const podium = [[0.62, 2], [0.9, 1], [0.45, 3]];
   let pod = '';
@@ -794,7 +809,7 @@ function projectCard(t, p, idx, mobile) {
     <circle cx="20" cy="17" r="5.5" fill="#FF5F57"/><circle cx="38" cy="17" r="5.5" fill="#FEBC2E"/><circle cx="56" cy="17" r="5.5" fill="#28C840"/>
     <rect x="80" y="7" width="${ww - 160}" height="20" rx="10" fill="${t.bg}" fill-opacity="0.7" stroke="${t.line}"/>
     <text x="${80 + (ww - 160) / 2}" y="21" text-anchor="middle" class="mono" font-size="${mobile ? 12.5 : 11.5}" fill="${t.muted}">${esc(url)}</text>
-    <g clip-path="url(#scr)">${screen}<rect class="shine" x="0" y="${bar}" width="140" height="${ih}" fill="url(#sh)"/></g>
+    <g clip-path="url(#scr)">${screen}<rect x="-300" y="${bar}" width="140" height="${ih}" fill="url(#sh)" transform="skewX(-18)"><animate id="sw${idx}" attributeName="x" from="-300" to="${ww + 300}" dur="1.8s" begin="0.8s;sw${idx}.end+7s" calcMode="spline" keySplines="0.45 0 0.55 1" keyTimes="0;1"/></rect></g>
     <path d="${clip}" fill="none" stroke="${t.line2}"/>
   </g></g>`;
 
@@ -807,7 +822,7 @@ function projectCard(t, p, idx, mobile) {
   body += `<g clip-path="url(#frame)"><ellipse cx="${wx + ww / 2}" cy="${wy + wh / 2}" rx="${ww * 0.75}" ry="${wh * 0.8}" fill="url(#accGlow)"/></g>`;
   body += win + txt;
   body += frameStroke(t, W, H);
-  body += cometBorder(W, H, 24, 'url(#acc)', 10, 300, 0.5);
+  body += cometBorder(W, H, 24, 'url(#acc)', 9, 300, 1.6, 8);
   return svg(W, H, label, css, body);
 }
 
@@ -867,13 +882,14 @@ function footer(t, mobile) {
   const W = mobile ? 640 : 1200, H = mobile ? 300 : 240;
   const css = `${AURORA_CSS}
   @keyframes wave { from { transform: translateX(0px); } to { transform: translateX(-${W}px); } }
+  .w1 { animation: wave 26s linear infinite; } .w2 { animation: wave 38s linear infinite reverse; } .w3 { animation: wave 50s linear infinite; }
 `;
   const wave = (amp, y, cls, op, fill) => {
     let d = `M0 ${y}`;
     for (let x = 0; x <= W * 2; x += W / 4) d += ` Q${x + W / 8} ${y - amp} ${x + W / 4} ${y} T${x + W / 2} ${y}`;
     return `<path class="${cls}" d="${d} V${H} H0 Z" fill="${fill}" opacity="${op}"/>`;
   };
-  let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}</defs>`;
+  let body = backdrop(t, W, H, 24, true) + `<defs>${brandDefs(t, W, true)}</defs>`;
   body += `<g clip-path="url(#frame)">${stars(t, W, H * 0.6, 30, 99, H * 0.6)}
     ${wave(18, H - 70, 'w3', 0.18, t.c3)}${wave(24, H - 52, 'w2', 0.22, t.c2)}${wave(14, H - 34, 'w1', 0.3, t.c1)}</g>`;
   if (mobile) {

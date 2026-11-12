@@ -7,8 +7,8 @@
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
   .rv { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
 
-  @keyframes scan { from { transform: translateX(-200px); } to { transform: translateX(680px); } }
-  .scan { animation: scan 1.8s cubic-bezier(.6,0,.3,1) 0.2s 1 both; }
+  @keyframes scan { 0% { transform: translateX(-200px); } 40%, 100% { transform: translateX(680px); } }
+  .scan { animation: scan 5s cubic-bezier(.6,0,.3,1) 0.2s infinite both; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before { animation: none !important; }
     .rv { opacity: 1 !important; transform: none !important; }

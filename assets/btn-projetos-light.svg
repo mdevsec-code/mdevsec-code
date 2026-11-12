@@ -7,8 +7,8 @@
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
   .rv { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
 
-  @keyframes sweep { from { transform: translateX(-140px) skewX(-20deg); } to { transform: translateX(290px) skewX(-20deg); } }
-  .shine { animation: sweep 1.6s ease-in-out 1.10s 1 both; }
+  @keyframes sweep { 0% { transform: translateX(-140px) skewX(-20deg); } 28%, 100% { transform: translateX(290px) skewX(-20deg); } }
+  .shine { animation: sweep 6s ease-in-out 1.40s infinite both; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before { animation: none !important; }
     .rv { opacity: 1 !important; transform: none !important; }
@@ -21,7 +21,8 @@
   <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="125" y2="0" spreadMethod="repeat">
     <stop offset="0" stop-color="#9A6B0F"/><stop offset="0.33" stop-color="#C8922A"/><stop offset="0.66" stop-color="#6E4A08"/><stop offset="1" stop-color="#9A6B0F"/>
   </linearGradient>
-  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6B0F"/><stop offset="0.5" stop-color="#C8922A"/><stop offset="1" stop-color="#6E4A08"/></linearGradient>
+  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6B0F"/><stop offset="0.5" stop-color="#C8922A"/><stop offset="1" stop-color="#6E4A08"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="8s" begin="-4s" repeatCount="indefinite"/></linearGradient>
   <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <clipPath id="btn"><rect x="2" y="2" width="246" height="60" rx="30"/></clipPath>
 </defs>

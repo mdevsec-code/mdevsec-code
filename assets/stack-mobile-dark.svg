@@ -23,8 +23,8 @@
 <g clip-path="url(#frame)">
   <rect width="640" height="581" fill="url(#bgG)"/>
   <rect width="640" height="581" fill="url(#dots)" opacity="0.6"/>
-  <ellipse cx="102.4" cy="69.72" rx="268.8" ry="360.21999999999997" fill="url(#aurA)"/>
-  <ellipse cx="588.8000000000001" cy="499.65999999999997" rx="230.39999999999998" ry="348.59999999999997" fill="url(#aurB)"/>
+  <ellipse cx="102.4" cy="69.72" rx="268.8" ry="360.21999999999997" fill="url(#aurA)"></ellipse>
+  <ellipse cx="588.8000000000001" cy="499.65999999999997" rx="230.39999999999998" ry="348.59999999999997" fill="url(#aurB)"></ellipse>
 </g><defs>
   <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8B04A"/><stop offset="0.5" stop-color="#F4D58D"/><stop offset="1" stop-color="#B97F22"/></linearGradient>
   <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="0" spreadMethod="repeat">
