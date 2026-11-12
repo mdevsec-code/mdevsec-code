@@ -24,9 +24,9 @@
 </p>
 
 <p align="center">
-  <img alt="Visitas ao perfil" src="https://komarev.com/ghpvc/?username=mdevsec-code&label=visitas&color=8B5CF6&style=flat-square">
-  <img alt="Seguidores" src="https://img.shields.io/github/followers/mdevsec-code?label=seguidores&style=flat-square&color=22D3EE&labelColor=0B1124">
-  <img alt="Estrelas" src="https://img.shields.io/github/stars/mdevsec-code?label=estrelas&style=flat-square&color=F472B6&labelColor=0B1124&affiliations=OWNER">
+  <img alt="Visitas ao perfil" src="https://komarev.com/ghpvc/?username=mdevsec-code&label=visitas&color=E8B04A&style=flat-square">
+  <img alt="Seguidores" src="https://img.shields.io/github/followers/mdevsec-code?label=seguidores&style=flat-square&color=C8922A&labelColor=15171C">
+  <img alt="Estrelas" src="https://img.shields.io/github/stars/mdevsec-code?label=estrelas&style=flat-square&color=B97F22&labelColor=15171C&affiliations=OWNER">
 </p>
 
 <br>
@@ -46,7 +46,7 @@
   <source media="(max-width: 600px)" srcset="assets/about-mobile-dark.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/about-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/about-light.svg">
-  <img alt="neofetch — Nome: Murilo de Souza; Cargo: Full-Stack Developer · Dados, BI &amp; Automação; Empresa: ENGENOVA Construções — BI, Processos e Automação; Local: Unidade nas instalações da BYD · Camaçari/BA; Formação: Sistemas de Informação · UNIME · 8º semestre; Idiomas: Português (nativo) · Inglês (avançado); Front: React · Vue · TypeScript · Tailwind CSS; Back: Node.js · NestJS · Express · Fastify · Prisma; Dados: PostgreSQL · Python · SQL · Dashboards de BI; ERP: SAP Fiori · SAP MM" src="assets/about-dark.svg" width="100%">
+  <img alt="neofetch — Nome: Murilo de Souza; Cargo: Full-Stack Developer · Dados, BI &amp; Automação; Empresa: ENGENOVA Construções — BI, Processos e Automação; Local: Unidade nas instalações da BYD · Camaçari/BA; Formação: Sistemas de Informação · UNIME · 8º semestre; Idioma: Inglês avançado · CNA Master e Platinum; Front: React · Vue · TypeScript · Tailwind CSS; Back: Node.js · NestJS · Express · Fastify · Prisma; Dados: PostgreSQL · Python · SQL · Dashboards de BI; ERP: SAP Fiori · SAP MM" src="assets/about-dark.svg" width="100%">
 </picture>
 
 Desenvolvedor full-stack e profissional de dados, atuando na interseção entre **desenvolvimento de software**, **BI/automação de processos** e **ambiente industrial**. Hoje na **ENGENOVA Construções**, numa unidade dentro da fábrica da **BYD** em Camaçari/BA, transformando dados de operação em decisão — e construindo as ferramentas que faltam quando a ideal não está disponível.
@@ -195,7 +195,7 @@ Desenvolvedor full-stack e profissional de dados, atuando na interseção entre 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mdevsec-code/mdevsec-code/output/3d/profile-night-rainbow.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mdevsec-code/mdevsec-code/output/3d/profile-season-animate.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mdevsec-code/mdevsec-code/output/3d/profile-season.svg">
   <img alt="Gráfico 3D das contribuições no GitHub" src="https://raw.githubusercontent.com/mdevsec-code/mdevsec-code/output/3d/profile-night-rainbow.svg" width="100%">
 </picture>
 
@@ -207,9 +207,9 @@ Desenvolvedor full-stack e profissional de dados, atuando na interseção entre 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=22D3EE&fire=F472B6&currStreakNum=EEF2FF&sideNums=8B5CF6&currStreakLabel=22D3EE&sideLabels=EEF2FF&dates=8C96BA&stroke=2A3A66">
-    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=0891B2&fire=DB2777&currStreakNum=0B1022&sideNums=7C3AED&currStreakLabel=0891B2&sideLabels=0B1022&dates=566182&stroke=C6D0EC">
-    <img alt="Sequência de contribuições no GitHub" src="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=22D3EE&fire=F472B6&currStreakNum=EEF2FF&sideNums=8B5CF6&currStreakLabel=22D3EE&sideLabels=EEF2FF&dates=8C96BA&stroke=2A3A66">
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=E8B04A&fire=F4D58D&currStreakNum=F3F0E8&sideNums=E8B04A&currStreakLabel=E8B04A&sideLabels=F3F0E8&dates=9AA0AC&stroke=343844">
+    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=9A6B0F&fire=C8922A&currStreakNum=16171B&sideNums=9A6B0F&currStreakLabel=9A6B0F&sideLabels=16171B&dates=5E6370&stroke=D4CCBB">
+    <img alt="Sequência de contribuições no GitHub" src="https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&ring=E8B04A&fire=F4D58D&currStreakNum=F3F0E8&sideNums=E8B04A&currStreakLabel=E8B04A&sideLabels=F3F0E8&dates=9AA0AC&stroke=343844">
   </picture>
 </p>
 
@@ -230,7 +230,7 @@ Desenvolvedor full-stack e profissional de dados, atuando na interseção entre 
   <source media="(max-width: 600px)" srcset="assets/education-mobile-dark.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/education-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/education-light.svg">
-  <img alt="Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum)." src="assets/education-dark.svg" width="100%">
+  <img alt="Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre. Idioma: inglês avançado (CNA Master e Platinum)." src="assets/education-dark.svg" width="100%">
 </picture>
 
 <br><br>

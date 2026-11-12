@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum).">
-<title>Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum).</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre. Idioma: inglês avançado (CNA Master e Platinum).">
+<title>Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre. Idioma: inglês avançado (CNA Master e Platinum).</title>
 <style>
   .sans { font-family: 'Segoe UI Variable Display', 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
   .mono { font-family: 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; }
 
-  @keyframes drift { 0%, 100% { transform: translate(0px, 0px) scale(1); } 50% { transform: translate(60px, 24px) scale(1.12); } }
-  .aur { transform-box: fill-box; transform-origin: center; animation: drift 14s ease-in-out infinite; }
-  .a2 { animation-duration: 18s; animation-direction: reverse; }
-  .a3 { animation-duration: 16s; animation-delay: -6s; }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
   .rv { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
 
@@ -19,55 +15,51 @@
   }
 </style>
 <defs>
-  <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0891B2"/><stop offset="0.5" stop-color="#7C3AED"/><stop offset="1" stop-color="#DB2777"/></linearGradient>
+  <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9A6B0F"/><stop offset="0.5" stop-color="#C8922A"/><stop offset="1" stop-color="#6E4A08"/></linearGradient>
   <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="600" y2="0" spreadMethod="repeat">
-    <stop offset="0" stop-color="#0891B2"/><stop offset="0.33" stop-color="#7C3AED"/><stop offset="0.66" stop-color="#DB2777"/><stop offset="1" stop-color="#0891B2"/>
-    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="600 0" dur="7s" repeatCount="indefinite"/>
-  </linearGradient>
-  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter>
-  <filter id="halo" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs><g transform="translate(0 0)">
-    <rect x="1" y="1" width="580" height="328" rx="22" fill="#FFFFFF" stroke="#C6D0EC"/>
-    <rect x="1" y="1" width="580" height="328" rx="22" fill="none" stroke="url(#brand)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="200 1586">
-    <animate attributeName="stroke-dashoffset" from="0" to="-1786" dur="9s" repeatCount="indefinite"/>
+    <stop offset="0" stop-color="#9A6B0F"/><stop offset="0.33" stop-color="#C8922A"/><stop offset="0.66" stop-color="#6E4A08"/><stop offset="1" stop-color="#9A6B0F"/>
+  </linearGradient></defs><g transform="translate(0 0)">
+    <rect x="1" y="1" width="580" height="328" rx="22" fill="#FFFFFF" stroke="#D4CCBB"/>
+    <rect x="1" y="1" width="580" height="328" rx="22" fill="none" stroke="url(#brand)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="200 1586" opacity="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-1786" dur="4.05s" begin="0.4s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1"/>
+    <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.8;1" dur="4.35s" begin="0.4s" fill="freeze"/>
   </rect>
     <rect x="30" y="30" width="54" height="54" rx="15" fill="url(#brand)"/>
     <g transform="translate(43 43) scale(1.1666666666666667)" fill="none" stroke="#fff" stroke-width="1.89" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5L12 14z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9.5V15"/></g>
-    <text x="100" y="52" class="mono" font-size="13" letter-spacing="3" fill="#566182">FORMAÇÃO</text>
-    <text x="100" y="78" class="sans" font-size="27" font-weight="800" fill="#0B1022">Sistemas de Informação</text>
-    <text x="30" y="140" class="sans" font-size="18" fill="#566182">Bacharelado · UNIME</text>
-    <text x="30" y="172" class="mono" font-size="14" fill="#0891B2">8º semestre<tspan fill="#566182"> · conclusão prevista para breve</tspan></text>
-    <rect x="30.0" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="30.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="0.40s" fill="freeze"/></rect>
-      <text x="58.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">1º</text><rect x="96.5" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="96.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="0.62s" fill="freeze"/></rect>
-      <text x="124.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">2º</text><rect x="163.0" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="163.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="0.84s" fill="freeze"/></rect>
-      <text x="191.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">3º</text><rect x="229.5" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="229.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="1.06s" fill="freeze"/></rect>
-      <text x="257.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">4º</text><rect x="296.0" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="296.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="1.28s" fill="freeze"/></rect>
-      <text x="324.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">5º</text><rect x="362.5" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="362.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="1.50s" fill="freeze"/></rect>
-      <text x="390.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">6º</text><rect x="429.0" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="429.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="1.72s" fill="freeze"/></rect>
-      <text x="457.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">7º</text><rect x="495.5" y="196" width="56.5" height="16" rx="5" fill="#E1E6F4"/>
-      <rect x="495.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="1.94s" fill="freeze"/></rect>
-      <text x="523.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#8A94B4">8º</text>
-    <text x="30" y="290" class="mono" font-size="13" fill="#8A94B4">// governança de TI, BI, engenharia de software</text>
+    <text x="100" y="52" class="mono" font-size="13" letter-spacing="3" fill="#5E6370">FORMAÇÃO</text>
+    <text x="100" y="78" class="sans" font-size="27" font-weight="800" fill="#16171B">Sistemas de Informação</text>
+    <text x="30" y="140" class="sans" font-size="18" fill="#5E6370">Bacharelado · UNIME</text>
+    <text x="30" y="172" class="mono" font-size="14" fill="#9A6B0F">8º semestre</text>
+    <rect x="30.0" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="30.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.533;1" dur="0.75s" begin="0s" fill="freeze"/></rect>
+      <text x="58.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">1º</text><rect x="96.5" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="96.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.639;1" dur="0.97s" begin="0s" fill="freeze"/></rect>
+      <text x="124.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">2º</text><rect x="163.0" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="163.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.706;1" dur="1.19s" begin="0s" fill="freeze"/></rect>
+      <text x="191.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">3º</text><rect x="229.5" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="229.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.752;1" dur="1.41s" begin="0s" fill="freeze"/></rect>
+      <text x="257.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">4º</text><rect x="296.0" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="296.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.785;1" dur="1.63s" begin="0s" fill="freeze"/></rect>
+      <text x="324.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">5º</text><rect x="362.5" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="362.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.811;1" dur="1.85s" begin="0s" fill="freeze"/></rect>
+      <text x="390.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">6º</text><rect x="429.0" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="429.0" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.831;1" dur="2.07s" begin="0s" fill="freeze"/></rect>
+      <text x="457.3" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">7º</text><rect x="495.5" y="196" width="56.5" height="16" rx="5" fill="#E7E1D4"/>
+      <rect x="495.5" y="196" width="56.5" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.847;1" dur="2.29s" begin="0s" fill="freeze"/></rect>
+      <text x="523.8" y="236" text-anchor="middle" class="mono" font-size="12" fill="#9A9FA9">8º</text>
+    <text x="30" y="290" class="mono" font-size="13" fill="#9A9FA9">// governança de TI, BI, engenharia de software</text>
   </g><g transform="translate(618 0)">
-    <rect x="1" y="1" width="580" height="328" rx="22" fill="#FFFFFF" stroke="#C6D0EC"/>
-    <rect x="1" y="1" width="580" height="328" rx="22" fill="none" stroke="url(#brand)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="200 1586">
-    <animate attributeName="stroke-dashoffset" from="0" to="-1786" dur="9s" repeatCount="indefinite"/>
+    <rect x="1" y="1" width="580" height="328" rx="22" fill="#FFFFFF" stroke="#D4CCBB"/>
+    <rect x="1" y="1" width="580" height="328" rx="22" fill="none" stroke="url(#brand)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="200 1586" opacity="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-1786" dur="4.05s" begin="0.4s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1"/>
+    <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.8;1" dur="4.35s" begin="0.4s" fill="freeze"/>
   </rect>
     <rect x="30" y="30" width="54" height="54" rx="15" fill="url(#brand)"/>
     <g transform="translate(43 43) scale(1.1666666666666667)" fill="none" stroke="#fff" stroke-width="1.89" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></g>
-    <text x="100" y="52" class="mono" font-size="13" letter-spacing="3" fill="#566182">IDIOMAS</text>
-    <text x="100" y="78" class="sans" font-size="27" font-weight="800" fill="#0B1022">Português e Inglês</text><text x="30" y="140" class="sans" font-size="22" font-weight="800" fill="#0B1022">Português</text>
-      <text x="552" y="140" text-anchor="end" class="mono" font-size="13" fill="#566182">Nativo</text>
-      <rect x="30" y="158" width="522" height="12" rx="6" fill="#E1E6F4"/>
-      <rect class="fill" style="animation-delay:0.5s" x="30" y="158" width="522.0" height="12" rx="6" fill="url(#brand)"/><text x="30" y="232" class="sans" font-size="22" font-weight="800" fill="#0B1022">Inglês</text>
-      <text x="552" y="232" text-anchor="end" class="mono" font-size="13" fill="#566182">Avançado · CNA Master e Platinum</text>
-      <rect x="30" y="250" width="522" height="12" rx="6" fill="#E1E6F4"/>
-      <rect class="fill" style="animation-delay:0.8s" x="30" y="250" width="448.9" height="12" rx="6" fill="url(#brand)"/>
+    <text x="100" y="52" class="mono" font-size="13" letter-spacing="3" fill="#5E6370">IDIOMA</text>
+    <text x="100" y="78" class="sans" font-size="27" font-weight="800" fill="#16171B">Inglês avançado</text><text x="30" y="140" class="sans" font-size="22" font-weight="800" fill="#16171B">Inglês</text>
+      <text x="552" y="140" text-anchor="end" class="mono" font-size="13" fill="#5E6370">Avançado</text>
+      <rect x="30" y="158" width="522" height="12" rx="6" fill="#E7E1D4"/>
+      <rect class="fill" style="animation-delay:0.5s" x="30" y="158" width="448.9" height="12" rx="6" fill="url(#brand)"/><rect x="30" y="250" width="148" height="34" rx="17" fill="#FBFAF6" fill-opacity="0.5" stroke="#D4CCBB"/><text x="104" y="272" text-anchor="middle" class="mono" font-size="13" fill="#5E6370">CNA Master</text><rect x="190" y="250" width="148" height="34" rx="17" fill="#FBFAF6" fill-opacity="0.5" stroke="#D4CCBB"/><text x="264" y="272" text-anchor="middle" class="mono" font-size="13" fill="#5E6370">CNA Platinum</text>
   </g>
 </svg>

@@ -24,17 +24,17 @@ const SHOTS = join(OUT, 'shots');
 const THEMES = {
   dark: {
     name: 'dark',
-    bg: '#05070F', bg2: '#0A0F24', panel: '#0B1124', panel2: '#10183A',
-    line: '#1B2547', line2: '#2A3A66', text: '#EEF2FF', muted: '#8C96BA', faint: '#5A658C',
-    c1: '#22D3EE', c2: '#8B5CF6', c3: '#F472B6', ok: '#34D399',
-    glow: 0.55, star: '#FFFFFF', shade: '#000000',
+    bg: '#0C0D10', bg2: '#121419', panel: '#15171C', panel2: '#1B1E25',
+    line: '#23262E', line2: '#343844', text: '#F3F0E8', muted: '#9AA0AC', faint: '#646A76',
+    c1: '#E8B04A', c2: '#F4D58D', c3: '#B97F22', ok: '#5BBF83',
+    glow: 0.32, star: '#F4D58D', shade: '#000000',
   },
   light: {
     name: 'light',
-    bg: '#FFFFFF', bg2: '#F2F5FF', panel: '#FFFFFF', panel2: '#F5F7FF',
-    line: '#E1E6F4', line2: '#C6D0EC', text: '#0B1022', muted: '#566182', faint: '#8A94B4',
-    c1: '#0891B2', c2: '#7C3AED', c3: '#DB2777', ok: '#059669',
-    glow: 0.22, star: '#7C3AED', shade: '#5B6CA8',
+    bg: '#FBFAF6', bg2: '#F2EEE4', panel: '#FFFFFF', panel2: '#F8F5EE',
+    line: '#E7E1D4', line2: '#D4CCBB', text: '#16171B', muted: '#5E6370', faint: '#9A9FA9',
+    c1: '#9A6B0F', c2: '#C8922A', c3: '#6E4A08', ok: '#2F855A',
+    glow: 0.22, star: '#B07A16', shade: '#6B5A3A',
   },
 };
 
@@ -98,10 +98,7 @@ function brandDefs(t, w = 1200) {
   <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></linearGradient>
   <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${w / 2}" y2="0" spreadMethod="repeat">
     <stop offset="0" stop-color="${t.c1}"/><stop offset="0.33" stop-color="${t.c2}"/><stop offset="0.66" stop-color="${t.c3}"/><stop offset="1" stop-color="${t.c1}"/>
-    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="${w / 2} 0" dur="7s" repeatCount="indefinite"/>
-  </linearGradient>
-  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter>
-  <filter id="halo" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>`;
+  </linearGradient>`;
 }
 
 // Fundo comum: gradiente, auroras que flutuam e grade de pontos.
@@ -111,23 +108,18 @@ function backdrop(t, w, h, rx = 24) {
   <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.bg}"/><stop offset="1" stop-color="${t.bg2}"/></linearGradient>
   <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.1" fill="${t.line2}" opacity="0.55"/></pattern>
   <clipPath id="frame"><rect width="${w}" height="${h}" rx="${rx}"/></clipPath>
+  <radialGradient id="aurA"><stop offset="0" stop-color="${t.c1}" stop-opacity="${t.glow}"/><stop offset="1" stop-color="${t.c1}" stop-opacity="0"/></radialGradient>
+  <radialGradient id="aurB"><stop offset="0" stop-color="${t.c3}" stop-opacity="${t.glow * 0.8}"/><stop offset="1" stop-color="${t.c3}" stop-opacity="0"/></radialGradient>
 </defs>
 <g clip-path="url(#frame)">
   <rect width="${w}" height="${h}" fill="url(#bgG)"/>
   <rect width="${w}" height="${h}" fill="url(#dots)" opacity="0.6"/>
-  <g filter="url(#soft)" opacity="${t.glow}">
-    <ellipse class="aur a1" cx="${w * 0.18}" cy="${h * 0.2}" rx="${w * 0.22}" ry="${h * 0.32}" fill="${t.c1}"/>
-    <ellipse class="aur a2" cx="${w * 0.62}" cy="${h * 0.05}" rx="${w * 0.2}" ry="${h * 0.26}" fill="${t.c2}"/>
-    <ellipse class="aur a3" cx="${w * 0.9}" cy="${h * 0.7}" rx="${w * 0.18}" ry="${h * 0.3}" fill="${t.c3}"/>
-  </g>
+  <ellipse cx="${w * 0.16}" cy="${h * 0.12}" rx="${w * 0.42}" ry="${h * 0.62}" fill="url(#aurA)"/>
+  <ellipse cx="${w * 0.92}" cy="${h * 0.86}" rx="${w * 0.36}" ry="${h * 0.6}" fill="url(#aurB)"/>
 </g>`;
 }
 
 const AURORA_CSS = `
-  @keyframes drift { 0%, 100% { transform: translate(0px, 0px) scale(1); } 50% { transform: translate(60px, 24px) scale(1.12); } }
-  .aur { transform-box: fill-box; transform-origin: center; animation: drift 14s ease-in-out infinite; }
-  .a2 { animation-duration: 18s; animation-direction: reverse; }
-  .a3 { animation-duration: 16s; animation-delay: -6s; }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
   .rv { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
 `;
@@ -137,10 +129,11 @@ function frameStroke(t, w, h, rx = 24) {
 }
 
 // Borda com um "cometa" de luz percorrendo o contorno.
-function cometBorder(w, h, rx, stroke, dur = 9, len = 260) {
+function cometBorder(w, h, rx, stroke, dur = 9, len = 260, begin = 0.4) {
   const per = Math.round(2 * (w + h) - (8 - 2 * Math.PI) * rx);
-  return `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${rx}" fill="none" stroke="${stroke}" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="${len} ${per - len}">
-    <animate attributeName="stroke-dashoffset" from="0" to="${-per}" dur="${dur}s" repeatCount="indefinite"/>
+  return `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${rx}" fill="none" stroke="${stroke}" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="${len} ${per - len}" opacity="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="${-per}" dur="${(dur * 0.45).toFixed(2)}s" begin="${begin}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1"/>
+    <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.8;1" dur="${(dur * 0.45 + 0.3).toFixed(2)}s" begin="${begin}s" fill="freeze"/>
   </rect>`;
 }
 
@@ -151,7 +144,7 @@ function stars(t, w, h, n, seed, yMax = h) {
   for (let i = 0; i < n; i++) {
     const x = (r() * w).toFixed(1), y = (r() * yMax).toFixed(1), s = (0.6 + r() * 1.4).toFixed(2);
     const d = (2.5 + r() * 4).toFixed(2), b = (-r() * 5).toFixed(2);
-    out += `<circle cx="${x}" cy="${y}" r="${s}" fill="${t.star}"><animate attributeName="opacity" values="0.1;0.9;0.1" dur="${d}s" begin="${b}s" repeatCount="indefinite"/></circle>`;
+    out += `<circle cx="${x}" cy="${y}" r="${s}" fill="${t.star}" opacity="${(0.25 + (+b * -0.12)).toFixed(2)}"/>`;
   }
   return `<g opacity="${t.name === 'dark' ? 0.8 : 0.35}">${out}</g>`;
 }
@@ -160,11 +153,12 @@ function stars(t, w, h, n, seed, yMax = h) {
 // horizontais que descem acelerando, como se a câmera andasse para a frente.
 function floor(t, w, h, horizon, vx, id = 'fl') {
   let vert = '';
-  for (let i = -18; i <= 18; i++) vert += `<line x1="${vx + i * 18}" y1="${horizon}" x2="${vx + i * 150}" y2="${h + 40}"/>`;
+  for (let i = -12; i <= 12; i++) vert += `<line x1="${vx + i * 26}" y1="${horizon}" x2="${vx + i * 210}" y2="${h + 40}"/>`;
   let hor = '';
-  const N = 9, dur = 5.4;
+  const N = 5, dur = 6;
   for (let i = 0; i < N; i++) {
-    hor += `<line x1="0" x2="${w}" y1="${horizon}" y2="${horizon}">
+    const ph = i / N, py = (horizon + (h + 20 - horizon) * ph * ph).toFixed(1);
+    hor += `<line x1="0" x2="${w}" y1="${py}" y2="${py}">
       <animate attributeName="y1" values="${horizon};${h + 20}" dur="${dur}s" begin="${(-i * dur / N).toFixed(2)}s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1" keyTimes="0;1"/>
       <animate attributeName="y2" values="${horizon};${h + 20}" dur="${dur}s" begin="${(-i * dur / N).toFixed(2)}s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1" keyTimes="0;1"/>
     </line>`;
@@ -173,12 +167,13 @@ function floor(t, w, h, horizon, vx, id = 'fl') {
 <defs>
   <linearGradient id="${id}Fade" x1="0" y1="${horizon}" x2="0" y2="${h}" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.35" stop-color="#fff" stop-opacity="0.75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
   <mask id="${id}Mask"><rect y="${horizon}" width="${w}" height="${h - horizon}" fill="url(#${id}Fade)"/></mask>
+  <linearGradient id="${id}Glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.c1}" stop-opacity="0"/><stop offset="0.5" stop-color="${t.c1}" stop-opacity="0.28"/><stop offset="1" stop-color="${t.c1}" stop-opacity="0"/></linearGradient>
   <linearGradient id="${id}Line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></linearGradient>
 </defs>
 <g clip-path="url(#frame)">
   <g mask="url(#${id}Mask)" stroke="url(#${id}Line)" stroke-width="1.2" opacity="${t.name === 'dark' ? 0.55 : 0.4}">${vert}${hor}</g>
   <rect x="0" y="${horizon - 1}" width="${w}" height="2" fill="url(#${id}Line)" opacity="0.9"/>
-  <rect x="0" y="${horizon - 6}" width="${w}" height="12" fill="url(#${id}Line)" opacity="0.35" filter="url(#halo)"/>
+  <rect x="0" y="${horizon - 14}" width="${w}" height="28" fill="url(#${id}Glow)"/>
 </g>`;
 }
 
@@ -204,11 +199,11 @@ function heroCss(t) {
   .role { opacity: 0; animation: role 10.5s ease-in-out infinite both; }
   .r1 { animation-delay: 2.6s; } .r2 { animation-delay: 6.1s; } .r3 { animation-delay: 9.6s; }
   @keyframes bob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-  .bob { animation: bob 5s ease-in-out infinite; } .bob2 { animation: bob 6.5s ease-in-out -2s infinite; } .bob3 { animation: bob 5.8s ease-in-out -4s infinite; }
+  .bob, .bob2, .bob3 { }
   @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
   .spark { stroke-dasharray: 900; animation: draw 2.4s ease-out 1.2s both; }
-  @keyframes grow { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
-  .bar { transform-box: fill-box; transform-origin: bottom; animation: grow 3.2s ease-in-out infinite; }
+  @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  .bar { transform-box: fill-box; transform-origin: bottom; animation: grow 1.1s cubic-bezier(.2,.7,.2,1) both; }
   @media (prefers-reduced-motion: reduce) { .r1 { opacity: 1; } .spark { stroke-dashoffset: 0; } }
 `;
 }
@@ -223,10 +218,9 @@ function nameBlock(t, x, y, size, lines, width) {
   const top = y - size * 0.92, hgt = lh * total + size * 0.2;
   return `
 <defs>
-  <clipPath id="wipe"><rect x="${x - 10}" y="${top}" width="0" height="${hgt}"><animate attributeName="width" from="0" to="${width + 40}" begin="0.3s" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0.6 0 0.2 1" keyTimes="0;1"/></rect></clipPath>
+  <clipPath id="wipe"><rect x="${x - 10}" y="${top}" width="${width + 40}" height="${hgt}"><animate attributeName="width" values="0;0;${width + 40}" keyTimes="0;0.17;1" begin="0s" dur="1.8s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.6 0 0.2 1"/></rect></clipPath>
 </defs>
 <g clip-path="url(#wipe)">
-  <text class="sans" font-size="${size}" font-weight="800" letter-spacing="-2" fill="url(#flow)" opacity="0.55" filter="url(#halo)">${txt}</text>
   <text class="sans" font-size="${size}" font-weight="800" letter-spacing="-2" fill="url(#flow)">${txt}</text>
 </g>
 <rect x="${x - 10}" y="${top}" width="4" height="${hgt}" rx="2" fill="${t.c1}" opacity="0">
@@ -245,13 +239,13 @@ function holoCard(t, x, y) {
   const area = `${line} L330 154 L20 154 Z`;
   let bars = '';
   [38, 56, 30, 64, 48, 72, 52].forEach((bh, i) => {
-    bars += `<rect class="bar" style="animation-delay:${(-i * 0.4).toFixed(1)}s" x="${24 + i * 22}" y="${236 - bh}" width="13" height="${bh}" rx="3" fill="url(#barG)"/>`;
+    bars += `<rect class="bar" style="animation-delay:${(1.4 + i * 0.08).toFixed(2)}s" x="${24 + i * 22}" y="${236 - bh}" width="13" height="${bh}" rx="3" fill="url(#barG)"/>`;
   });
   const steps = ['DADOS', 'API', 'BI', 'DECISÃO'];
   let flow = '';
   steps.forEach((s, i) => {
     const fx = 196 + (i % 2) * 74, fy = 176 + Math.floor(i / 2) * 36;
-    flow += `<rect x="${fx}" y="${fy}" width="66" height="26" rx="7" fill="${t.panel2}" stroke="${t.line2}"><animate attributeName="stroke" values="${t.line2};${t.c1};${t.line2};${t.line2}" keyTimes="0;0.1;0.25;1" dur="4s" begin="${i}s" repeatCount="indefinite"/></rect>
+    flow += `<rect x="${fx}" y="${fy}" width="66" height="26" rx="7" fill="${t.panel2}" stroke="${t.line2}"><animate attributeName="stroke" values="${t.line2};${t.c1};${t.line2};${t.line2}" keyTimes="0;0.1;0.25;1" dur="2.4s" begin="${(2 + i * 0.5).toFixed(1)}s"/></rect>
       <text x="${fx + 33}" y="${fy + 17}" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="${t.text}">${s}</text>`;
   });
   return `
@@ -265,13 +259,13 @@ function holoCard(t, x, y) {
   ${cometBorder(w, h, 18, 'url(#brand)', 7, 180)}
   <circle cx="22" cy="24" r="4.5" fill="${t.c3}"/><circle cx="38" cy="24" r="4.5" fill="${t.c2}"/><circle cx="54" cy="24" r="4.5" fill="${t.c1}"/>
   <text x="72" y="28" class="mono" font-size="11.5" fill="${t.muted}">live.dashboard</text>
-  <circle cx="${w - 60}" cy="24" r="5" fill="${t.ok}"/><circle cx="${w - 60}" cy="24" r="5" fill="none" stroke="${t.ok}" stroke-width="2"><animate attributeName="r" values="5;15" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="1.8s" repeatCount="indefinite"/></circle>
+  <circle cx="${w - 60}" cy="24" r="5" fill="${t.ok}"/>
   <text x="${w - 50}" y="28" class="mono" font-size="11" fill="${t.ok}">ao vivo</text>
   <line x1="20" y1="44" x2="${w - 20}" y2="44" stroke="${t.line}"/>
   <g stroke="${t.line}" stroke-dasharray="3 5"><line x1="20" y1="80" x2="330" y2="80"/><line x1="20" y1="116" x2="330" y2="116"/><line x1="20" y1="152" x2="330" y2="152"/></g>
   <path d="${area}" fill="url(#areaG)"/>
   <path class="spark" d="${line}" fill="none" stroke="url(#brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle r="6" fill="${t.c3}"><animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"><mpath href="#sparkPath"/></animateMotion></circle>
+  <circle cx="${pts[pts.length - 1][0] + 20}" cy="${pts[pts.length - 1][1] + 62}" r="6" fill="${t.c2}" stroke="${t.bg}" stroke-width="2"/>
   <text x="22" y="70" class="mono" font-size="11" fill="${t.muted}">produtividade · 12 meses</text>
   ${bars}
   ${flow}
@@ -310,7 +304,7 @@ function hero(t, mobile) {
       body += `<g transform="translate(${tx} ${ty})"><g class="${cls}"><g class="rv" style="animation-delay:2s"><rect width="${w}" height="26" rx="13" fill="${t.panel2}" stroke="url(#brand)"/><text x="13" y="17" class="mono" font-size="12" fill="${t.text}">${label}</text></g></g></g>`;
     }
     let px = 64;
-    ['6 projetos no GitHub', 'Saúde · RH · Suprimentos · EPI · Estética', 'PT nativo · EN avançado'].forEach((label, i) => {
+    ['6 projetos no GitHub', 'Saúde · RH · Suprimentos · EPI · Estética', 'Inglês avançado'].forEach((label, i) => {
       const p = pill(t, px, 420, label, { dot: [t.c1, t.c2, t.c3][i] });
       body += `<g class="rv" style="animation-delay:${2.2 + i * 0.15}s">${p.svg}</g>`;
       px += p.w + 14;
@@ -321,7 +315,7 @@ function hero(t, mobile) {
     body += nameBlock(t, 34, 206, 88, ['Murilo', 'de Souza'], 420);
     body += `<text class="sans rv" style="animation-delay:1.5s" font-size="27" fill="${t.text}"><tspan x="38" y="352">Full-Stack Developer</tspan><tspan x="38" y="388" fill="${t.muted}">Dados, BI &amp; Automação</tspan></text>`;
     body += `<g class="mono" font-size="20" fill="${t.c1}">${ROLES_MOBILE.map((r, i) => `<text class="role r${i + 1}" x="38" y="436">${esc(r)}</text>`).join('')}</g>`;
-    const rows = [['6 projetos no GitHub', 'PT · EN'], ['Saúde · RH · Suprimentos · EPI']];
+    const rows = [['6 projetos no GitHub', 'EN avançado'], ['Saúde · RH · Suprimentos · EPI']];
     rows.forEach((row, ri) => {
       let px = 38;
       row.forEach((label, i) => {
@@ -371,16 +365,15 @@ const BUTTONS = [
 function button(t, b, i) {
   const W = 250, H = 64;
   const css = `${AURORA_CSS}
-  @keyframes sweep { 0% { transform: translateX(-140px) skewX(-20deg); } 60%, 100% { transform: translateX(${W + 40}px) skewX(-20deg); } }
-  .shine { animation: sweep 4.5s ease-in-out ${i * 0.6}s infinite; }`;
+  @keyframes sweep { from { transform: translateX(-140px) skewX(-20deg); } to { transform: translateX(${W + 40}px) skewX(-20deg); } }
+  .shine { animation: sweep 1.6s ease-in-out ${(0.6 + i * 0.25).toFixed(2)}s 1 both; }`;
   const ic = b.glyph === 'in'
     ? `<text x="38" y="${H / 2 + 7}" text-anchor="middle" class="sans" font-size="19" font-weight="800" fill="#fff">in</text>`
     : icon(b.glyph, 27, H / 2 - 11, 22, '#fff', 2.2);
   const body = `
 <defs>
   ${brandDefs(t, W)}
-  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/>
-    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="6s" begin="${-i * 1.5}s" repeatCount="indefinite"/></linearGradient>
+  <linearGradient id="spin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.c1}"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></linearGradient>
   <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="${t.name === 'dark' ? 0.16 : 0.55}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <clipPath id="btn"><rect x="2" y="2" width="${W - 4}" height="${H - 4}" rx="${H / 2 - 2}"/></clipPath>
 </defs>
@@ -409,7 +402,7 @@ function sectionTitle(t, s, mobile) {
   const W = mobile ? 640 : 1000, H = mobile ? 118 : 96;
   const css = `${AURORA_CSS}
   @keyframes scan { from { transform: translateX(-200px); } to { transform: translateX(${W + 40}px); } }
-  .scan { animation: scan 4.2s cubic-bezier(.6,0,.3,1) infinite; }`;
+  .scan { animation: scan 1.8s cubic-bezier(.6,0,.3,1) 0.2s 1 both; }`;
   let body = `<defs>${brandDefs(t, W)}
   <linearGradient id="seg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.c1}" stop-opacity="0"/><stop offset="0.5" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}" stop-opacity="0"/></linearGradient></defs>`;
   if (mobile) {
@@ -434,7 +427,7 @@ const FETCH = [
   ['Empresa', 'ENGENOVA Construções — BI, Processos e Automação'],
   ['Local', 'Unidade nas instalações da BYD · Camaçari/BA'],
   ['Formação', 'Sistemas de Informação · UNIME · 8º semestre'],
-  ['Idiomas', 'Português (nativo) · Inglês (avançado)'],
+  ['Idioma', 'Inglês avançado · CNA Master e Platinum'],
   ['Front', 'React · Vue · TypeScript · Tailwind CSS'],
   ['Back', 'Node.js · NestJS · Express · Fastify · Prisma'],
   ['Dados', 'PostgreSQL · Python · SQL · Dashboards de BI'],
@@ -446,7 +439,7 @@ const FETCH_MOBILE = [
   ['Empresa', 'ENGENOVA — BI e Automação'],
   ['Local', 'Fábrica da BYD · Camaçari/BA'],
   ['Formação', 'Sist. de Informação · UNIME'],
-  ['Idiomas', 'PT nativo · EN avançado'],
+  ['Idioma', 'Inglês avançado'],
   ['Front', 'React · Vue · TS · Tailwind'],
   ['Back', 'Node · NestJS · Express · Prisma'],
   ['Dados', 'PostgreSQL · Python · SQL · BI'],
@@ -462,15 +455,14 @@ function monogram(t, cx, cy, r) {
   const s = r * 0.42;
   const m = `M${cx - s} ${cy + s * 0.95} V${cy - s * 0.95} L${cx} ${cy + s * 0.15} L${cx + s} ${cy - s * 0.95} V${cy + s * 0.95}`;
   const orbit = (rot) => `<ellipse cx="${cx}" cy="${cy}" rx="${r * 1.32}" ry="${r * 0.42}" fill="none" stroke="${t.line2}" stroke-dasharray="4 7" transform="rotate(${rot} ${cx} ${cy})"/>
-    <g transform="rotate(${rot} ${cx} ${cy})"><circle r="6" fill="${rot < 0 ? t.c3 : t.c1}"><animateMotion dur="${rot < 0 ? 6 : 8}s" repeatCount="indefinite" path="M${cx - r * 1.32} ${cy} a${r * 1.32} ${r * 0.42} 0 1 0 ${r * 2.64} 0 a${r * 1.32} ${r * 0.42} 0 1 0 ${-r * 2.64} 0"/></circle></g>`;
+    <g transform="rotate(${rot} ${cx} ${cy})"><circle cx="${rot < 0 ? cx - r * 1.32 : cx + r * 1.32}" cy="${cy}" r="6" fill="${rot < 0 ? t.c3 : t.c1}"/></g>`;
   return `
   ${orbit(-18)}
-  <polygon points="${hex}" fill="${t.panel2}" fill-opacity="0.7" stroke="url(#brand)" stroke-width="3" stroke-dasharray="${(r * 6.3).toFixed(0)}" stroke-dashoffset="${(r * 6.3).toFixed(0)}">
-    <animate attributeName="stroke-dashoffset" to="0" dur="2s" begin="0.2s" fill="freeze" calcMode="spline" keySplines="0.5 0 0.2 1" keyTimes="0;1"/>
+  <polygon points="${hex}" fill="${t.panel2}" fill-opacity="0.7" stroke="url(#brand)" stroke-width="3" stroke-dasharray="${(r * 6.3).toFixed(0)}" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" values="${(r * 6.3).toFixed(0)};${(r * 6.3).toFixed(0)};0" keyTimes="0;0.09;1" dur="2.2s" begin="0s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.5 0 0.2 1"/>
   </polygon>
-  <path d="${m}" fill="none" stroke="url(#brand)" stroke-width="${(r * 0.12).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#halo)"/>
-  <path d="${m}" fill="none" stroke="url(#brand)" stroke-width="${(r * 0.12).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${(s * 7).toFixed(0)}" stroke-dashoffset="${(s * 7).toFixed(0)}">
-    <animate attributeName="stroke-dashoffset" to="0" dur="1.6s" begin="1s" fill="freeze"/>
+  <path d="${m}" fill="none" stroke="url(#brand)" stroke-width="${(r * 0.12).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${(s * 7).toFixed(0)}" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" values="${(s * 7).toFixed(0)};${(s * 7).toFixed(0)};0" keyTimes="0;0.38;1" dur="2.6s" begin="0s" fill="freeze"/>
   </path>
   ${orbit(38)}`;
 }
@@ -547,7 +539,7 @@ function services(t, mobile) {
     });
     body += `<g transform="translate(${x} ${y})"><g class="rv" style="animation-delay:${(i * 0.12).toFixed(2)}s">
       <rect x="1" y="1" width="${tw - 2}" height="${th - 2}" rx="20" fill="url(#tileG)" stroke="${t.line2}"/>
-      ${cometBorder(tw, th, 20, 'url(#brand)', 8, 160).replace('<animate ', `<animate begin="${(-i * 1.3).toFixed(1)}s" `)}
+      ${cometBorder(tw, th, 20, 'url(#brand)', 8, 160, 0.3 + i * 0.15)}
       <rect x="28" y="28" width="${ic}" height="${ic}" rx="15" fill="url(#brand)"/>
       ${icon(s.icon, 28 + ic * 0.24, 28 + ic * 0.24, ic * 0.52, '#fff', 2.2)}
       <text x="${textX}" y="${titleY}" class="sans" font-size="${tf}" font-weight="800" fill="${t.text}">${esc(s.title)}</text>
@@ -578,20 +570,16 @@ function chip(t, label, color, size, x, y) {
 function stackOrbit(t) {
   const W = 1200, H = 640, cx = 600, cy = 296;
   const rings = [[210, 74, 46], [370, 132, 64], [510, 196, 88]];
-  const css = `${AURORA_CSS}
-  @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
-  .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 3s ease-out infinite; }
-  .p2 { animation-delay: 1s; } .p3 { animation-delay: 2s; }`;
+  const css = AURORA_CSS;
   let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}
+    <radialGradient id="coreGlow"><stop offset="0.4" stop-color="${t.c1}" stop-opacity="0.35"/><stop offset="1" stop-color="${t.c1}" stop-opacity="0"/></radialGradient>
     <radialGradient id="core" cx="0.35" cy="0.3"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.25" stop-color="${t.c1}"/><stop offset="0.7" stop-color="${t.c2}"/><stop offset="1" stop-color="${t.c3}"/></radialGradient></defs>`;
   body += `<g clip-path="url(#frame)">${stars(t, W, H, 60, 21)}</g>`;
   rings.forEach(([rx, ry], i) => {
     body += `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="${[t.c1, t.c2, t.c3][i]}" stroke-opacity="0.4" stroke-width="1.4" stroke-dasharray="${i === 1 ? '2 8' : '6 10'}"/>`;
   });
-  body += `<circle class="pulse" cx="${cx}" cy="${cy}" r="44" fill="none" stroke="${t.c2}" stroke-width="2"/>
-    <circle class="pulse p2" cx="${cx}" cy="${cy}" r="44" fill="none" stroke="${t.c1}" stroke-width="2"/>
-    <circle class="pulse p3" cx="${cx}" cy="${cy}" r="44" fill="none" stroke="${t.c3}" stroke-width="2"/>
-    <circle cx="${cx}" cy="${cy}" r="58" fill="url(#core)" opacity="0.5" filter="url(#halo)"/>
+  body += `<circle cx="${cx}" cy="${cy}" r="96" fill="url(#coreGlow)"/>
+    <circle cx="${cx}" cy="${cy}" r="62" fill="none" stroke="${t.c1}" stroke-opacity="0.35" stroke-width="1.5"/>
     <circle cx="${cx}" cy="${cy}" r="46" fill="url(#core)"/>
     <text x="${cx}" y="${cy + 10}" text-anchor="middle" class="mono" font-size="28" font-weight="800" fill="#fff">&lt;/&gt;</text>`;
   // Chips percorrendo as órbitas: animateMotion só leva o chip pela elipse,
@@ -599,15 +587,15 @@ function stackOrbit(t) {
   STACK.forEach((ring, ri) => {
     const [rx, ry, dur] = rings[ri];
     const dir = ri === 1 ? 1 : 0;
-    const path = `M${cx - rx} ${cy} a${rx} ${ry} 0 1 ${dir} ${2 * rx} 0 a${rx} ${ry} 0 1 ${dir} ${-2 * rx} 0`;
-    const fade = dir ? '0.9;0.45;0.9;1;0.9' : '0.9;1;0.9;0.45;0.9';
+
     ring.items.forEach(([label, color], i) => {
-      const c = chip(t, label, color, 14, 0, 0);
-      const begin = (-(i / ring.items.length) * dur).toFixed(2);
-      body += `<g>${c.svg}
-        <animateMotion dur="${dur}s" begin="${begin}s" repeatCount="indefinite" path="${path}"/>
-        <animate attributeName="opacity" values="${fade}" keyTimes="0;0.25;0.5;0.75;1" dur="${dur}s" begin="${begin}s" repeatCount="indefinite"/>
-      </g>`;
+      const th = (2 * Math.PI * i) / ring.items.length + ri * 0.5;
+      const px = cx + rx * Math.cos(th), py = cy + ry * Math.sin(th);
+      const dx = (-2 * rx * Math.cos(th)).toFixed(1), dy = (-2 * ry * Math.sin(th)).toFixed(1);
+      const path = `M0 0 a${rx} ${ry} 0 1 ${dir} ${dx} ${dy} a${rx} ${ry} 0 1 ${dir} ${-dx} ${-dy}`;
+      body += `<g transform="translate(${px.toFixed(1)} ${py.toFixed(1)})"><g>${chip(t, label, color, 14, 0, 0).svg}
+        <animateMotion dur="${dur}s" begin="0s" repeatCount="indefinite" path="${path}"/>
+      </g></g>`;
     });
   });
   let lx = 0;
@@ -719,13 +707,13 @@ function seminarArt(t, a, w, h) {
   let answers = '';
   btn.forEach((c, i) => {
     const bx = px + 12 + (i % 2) * ((pw - 34) / 2 + 10), by = py + ph * 0.34 + Math.floor(i / 2) * (ph * 0.15);
-    answers += `<rect x="${bx}" y="${by}" width="${(pw - 34) / 2}" height="${ph * 0.12}" rx="8" fill="${c}"><animate attributeName="opacity" values="1;1;0.35;1" keyTimes="0;0.55;0.6;1" dur="4s" begin="${i * 0.2}s" repeatCount="indefinite"/></rect>`;
+    answers += `<rect x="${bx}" y="${by}" width="${(pw - 34) / 2}" height="${ph * 0.12}" rx="8" fill="${c}"><animate attributeName="opacity" values="1;1;0.35;1" keyTimes="0;0.55;0.6;1" dur="2s" begin="${(1 + i * 0.2).toFixed(1)}s"/></rect>`;
   });
   const podium = [[0.62, 2], [0.9, 1], [0.45, 3]];
   let pod = '';
   podium.forEach(([f, n], i) => {
     const bw = (pw - 40) / 3, bx = px + 14 + i * (bw + 6), bh = ph * 0.17 * f, by = py + ph - 14 - bh;
-    pod += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="4" fill="${a}" fill-opacity="${0.45 + f * 0.5}"><animate attributeName="height" values="0;${bh}" dur="1.2s" begin="${0.4 + i * 0.2}s" fill="freeze"/><animate attributeName="y" values="${by + bh};${by}" dur="1.2s" begin="${0.4 + i * 0.2}s" fill="freeze"/></rect>
+    pod += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="4" fill="${a}" fill-opacity="${0.45 + f * 0.5}"><animate attributeName="height" values="0;0;${bh}" keyTimes="0;${((0.4 + i * 0.2) / (1.6 + i * 0.2)).toFixed(3)};1" dur="${(1.6 + i * 0.2).toFixed(1)}s" begin="0s" fill="freeze"/><animate attributeName="y" values="${by + bh};${by + bh};${by}" keyTimes="0;${((0.4 + i * 0.2) / (1.6 + i * 0.2)).toFixed(3)};1" dur="${(1.6 + i * 0.2).toFixed(1)}s" begin="0s" fill="freeze"/></rect>
       <text x="${bx + bw / 2}" y="${by - 6}" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="${t.text}">${n}º</text>`;
   });
   return `
@@ -790,9 +778,9 @@ function projectCard(t, p, idx, mobile) {
   const H = mobile ? Math.round(y + 44) : 620;
   const css = `${AURORA_CSS}
   @keyframes bob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
-  .bob { animation: bob 6s ease-in-out infinite; }
-  @keyframes sweep { 0% { transform: translateX(-300px) skewX(-18deg); } 55%, 100% { transform: translateX(${ww + 300}px) skewX(-18deg); } }
-  .shine { animation: sweep 6.5s ease-in-out ${idx * 0.7}s infinite; }`;
+
+  @keyframes sweep { from { transform: translateX(-300px) skewX(-18deg); } to { transform: translateX(${ww + 300}px) skewX(-18deg); } }
+  .shine { animation: sweep 1.8s ease-in-out 0.8s 1 both; }`;
 
   const clip = `M0 ${bar} H${ww} V${wh - 16} Q${ww} ${wh} ${ww - 16} ${wh} H16 Q0 ${wh} 0 ${wh - 16} Z`;
   const url = p.url ?? `github.com/mdevsec-code/${p.repo}`;
@@ -801,7 +789,7 @@ function projectCard(t, p, idx, mobile) {
     : `<g transform="translate(0 ${bar})">${seminarArt(t, a, ww, ih)}</g>`;
   const win = `
   <g transform="translate(${wx} ${wy})"><g class="bob">
-    <rect x="-2" y="18" width="${ww + 4}" height="${wh}" rx="18" fill="${t.shade}" opacity="${t.name === 'dark' ? 0.5 : 0.16}" filter="url(#halo)"/>
+    <rect x="10" y="14" width="${ww - 20}" height="${wh}" rx="18" fill="${t.shade}" opacity="${t.name === 'dark' ? 0.45 : 0.1}"/>
     <rect width="${ww}" height="${wh}" rx="16" fill="${t.panel2}" stroke="${t.line2}"/>
     <circle cx="20" cy="17" r="5.5" fill="#FF5F57"/><circle cx="38" cy="17" r="5.5" fill="#FEBC2E"/><circle cx="56" cy="17" r="5.5" fill="#28C840"/>
     <rect x="80" y="7" width="${ww - 160}" height="20" rx="10" fill="${t.bg}" fill-opacity="0.7" stroke="${t.line}"/>
@@ -814,11 +802,12 @@ function projectCard(t, p, idx, mobile) {
   let body = backdrop(t, W, H) + `<defs>${brandDefs(t, W)}
     <clipPath id="scr"><path d="${clip}"/></clipPath>
     <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="${t.name === 'dark' ? 0.14 : 0.35}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="accGlow"><stop offset="0" stop-color="${a}" stop-opacity="${t.name === 'dark' ? 0.22 : 0.12}"/><stop offset="1" stop-color="${a}" stop-opacity="0"/></radialGradient>
     <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${t.c2}"/></linearGradient></defs>`;
-  body += `<g clip-path="url(#frame)"><ellipse cx="${wx + ww / 2}" cy="${wy + wh / 2}" rx="${ww * 0.55}" ry="${wh * 0.5}" fill="${a}" opacity="${t.name === 'dark' ? 0.22 : 0.12}" filter="url(#soft)"/></g>`;
+  body += `<g clip-path="url(#frame)"><ellipse cx="${wx + ww / 2}" cy="${wy + wh / 2}" rx="${ww * 0.75}" ry="${wh * 0.8}" fill="url(#accGlow)"/></g>`;
   body += win + txt;
   body += frameStroke(t, W, H);
-  body += cometBorder(W, H, 24, 'url(#acc)', 10, 300).replace('<animate ', `<animate begin="${(-idx * 1.7).toFixed(1)}s" `);
+  body += cometBorder(W, H, 24, 'url(#acc)', 10, 300, 0.5);
   return svg(W, H, label, css, body);
 }
 
@@ -845,16 +834,16 @@ function education(t, mobile) {
   const sx = 30, sw = (pw - 60 - 7 * 10) / 8;
   for (let i = 0; i < 8; i++) {
     sem += `<rect x="${(sx + i * (sw + 10)).toFixed(1)}" y="196" width="${sw.toFixed(1)}" height="16" rx="5" fill="${t.line}"/>
-      <rect x="${(sx + i * (sw + 10)).toFixed(1)}" y="196" width="${sw.toFixed(1)}" height="16" rx="5" fill="url(#brand)" opacity="0"><animate attributeName="opacity" to="1" dur="0.35s" begin="${(0.4 + i * 0.22).toFixed(2)}s" fill="freeze"/></rect>
+      <rect x="${(sx + i * (sw + 10)).toFixed(1)}" y="196" width="${sw.toFixed(1)}" height="16" rx="5" fill="url(#brand)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;${((0.4 + i * 0.22) / (0.75 + i * 0.22)).toFixed(3)};1" dur="${(0.75 + i * 0.22).toFixed(2)}s" begin="0s" fill="freeze"/></rect>
       <text x="${(sx + i * (sw + 10) + sw / 2).toFixed(1)}" y="236" text-anchor="middle" class="mono" font-size="${12 * k}" fill="${t.faint}">${i + 1}º</text>`;
   }
   const edu = `<text x="100" y="78" class="sans" font-size="${27 * k}" font-weight="800" fill="${t.text}">Sistemas de Informação</text>
     <text x="30" y="140" class="sans" font-size="${18 * k}" fill="${t.muted}">Bacharelado · UNIME</text>
-    <text x="30" y="172" class="mono" font-size="${14 * k}" fill="${t.c1}">8º semestre<tspan fill="${t.muted}"> · conclusão prevista para breve</tspan></text>
+    <text x="30" y="172" class="mono" font-size="${14 * k}" fill="${t.c1}">8º semestre</text>
     ${sem}
     <text x="30" y="290" class="mono" font-size="${13 * k}" fill="${t.faint}">// governança de TI, BI, engenharia de software</text>`;
 
-  const langs = [['Português', 'Nativo', 1], ['Inglês', 'Avançado · CNA Master e Platinum', 0.86]];
+  const langs = [['Inglês', 'Avançado', 0.86]];
   let lg = '';
   langs.forEach(([l, lvl, f], i) => {
     const ly = 140 + i * 92;
@@ -863,12 +852,13 @@ function education(t, mobile) {
       <rect x="30" y="${ly + 18}" width="${pw - 60}" height="12" rx="6" fill="${t.line}"/>
       <rect class="fill" style="animation-delay:${0.5 + i * 0.3}s" x="30" y="${ly + 18}" width="${((pw - 60) * f).toFixed(1)}" height="12" rx="6" fill="url(#brand)"/>`;
   });
-  const lang = `<text x="100" y="78" class="sans" font-size="${27 * k}" font-weight="800" fill="${t.text}">Português e Inglês</text>${lg}`;
+  const cert = ['CNA Master', 'CNA Platinum'].map((c, i) => `<rect x="${30 + i * 160}" y="250" width="148" height="34" rx="17" fill="${t.bg}" fill-opacity="0.5" stroke="${t.line2}"/><text x="${30 + i * 160 + 74}" y="${250 + 22}" text-anchor="middle" class="mono" font-size="${13 * k}" fill="${t.muted}">${c}</text>`).join('');
+  const lang = `<text x="100" y="78" class="sans" font-size="${27 * k}" font-weight="800" fill="${t.text}">Inglês avançado</text>${lg}${cert}`;
 
   let body = `<defs>${brandDefs(t, W)}</defs>`;
   body += panel(0, 0, 'cap', 'FORMAÇÃO', edu);
-  body += mobile ? panel(0, ph + gap, 'globe', 'IDIOMAS', lang) : panel(pw + gap, 0, 'globe', 'IDIOMAS', lang);
-  return svg(W, H, 'Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum).', css, body);
+  body += mobile ? panel(0, ph + gap, 'globe', 'IDIOMA', lang) : panel(pw + gap, 0, 'globe', 'IDIOMA', lang);
+  return svg(W, H, 'Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre. Idioma: inglês avançado (CNA Master e Platinum).', css, body);
 }
 
 // ── Rodapé ─────────────────────────────────────────────────────────────────
@@ -877,7 +867,7 @@ function footer(t, mobile) {
   const W = mobile ? 640 : 1200, H = mobile ? 300 : 240;
   const css = `${AURORA_CSS}
   @keyframes wave { from { transform: translateX(0px); } to { transform: translateX(-${W}px); } }
-  .w1 { animation: wave 14s linear infinite; } .w2 { animation: wave 22s linear infinite reverse; } .w3 { animation: wave 30s linear infinite; }`;
+`;
   const wave = (amp, y, cls, op, fill) => {
     let d = `M0 ${y}`;
     for (let x = 0; x <= W * 2; x += W / 4) d += ` Q${x + W / 8} ${y - amp} ${x + W / 4} ${y} T${x + W / 2} ${y}`;
@@ -977,8 +967,8 @@ ${i < PROJECTS.length - 1 ? '\n' : ''}`;
 
   const streak = (th) => {
     const c = th === 'dark'
-      ? 'ring=22D3EE&fire=F472B6&currStreakNum=EEF2FF&sideNums=8B5CF6&currStreakLabel=22D3EE&sideLabels=EEF2FF&dates=8C96BA&stroke=2A3A66'
-      : 'ring=0891B2&fire=DB2777&currStreakNum=0B1022&sideNums=7C3AED&currStreakLabel=0891B2&sideLabels=0B1022&dates=566182&stroke=C6D0EC';
+      ? 'ring=E8B04A&fire=F4D58D&currStreakNum=F3F0E8&sideNums=E8B04A&currStreakLabel=E8B04A&sideLabels=F3F0E8&dates=9AA0AC&stroke=343844'
+      : 'ring=9A6B0F&fire=C8922A&currStreakNum=16171B&sideNums=9A6B0F&currStreakLabel=9A6B0F&sideLabels=16171B&dates=5E6370&stroke=D4CCBB';
     return `https://streak-stats.demolab.com?user=mdevsec-code&locale=pt_BR&hide_border=true&background=00000000&${c}`;
   };
 
@@ -1001,9 +991,9 @@ ${picture('hero', `${NAME} — ${SUBTITLE}`)}
 </p>
 
 <p align="center">
-  <img alt="Visitas ao perfil" src="https://komarev.com/ghpvc/?username=mdevsec-code&label=visitas&color=8B5CF6&style=flat-square">
-  <img alt="Seguidores" src="https://img.shields.io/github/followers/mdevsec-code?label=seguidores&style=flat-square&color=22D3EE&labelColor=0B1124">
-  <img alt="Estrelas" src="https://img.shields.io/github/stars/mdevsec-code?label=estrelas&style=flat-square&color=F472B6&labelColor=0B1124&affiliations=OWNER">
+  <img alt="Visitas ao perfil" src="https://komarev.com/ghpvc/?username=mdevsec-code&label=visitas&color=E8B04A&style=flat-square">
+  <img alt="Seguidores" src="https://img.shields.io/github/followers/mdevsec-code?label=seguidores&style=flat-square&color=C8922A&labelColor=15171C">
+  <img alt="Estrelas" src="https://img.shields.io/github/stars/mdevsec-code?label=estrelas&style=flat-square&color=B97F22&labelColor=15171C&affiliations=OWNER">
 </p>
 
 <br>
@@ -1040,7 +1030,7 @@ ${title('atividade')}
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="${RAW_OUTPUT}/3d/profile-night-rainbow.svg">
-  <source media="(prefers-color-scheme: light)" srcset="${RAW_OUTPUT}/3d/profile-season-animate.svg">
+  <source media="(prefers-color-scheme: light)" srcset="${RAW_OUTPUT}/3d/profile-season.svg">
   <img alt="Gráfico 3D das contribuições no GitHub" src="${RAW_OUTPUT}/3d/profile-night-rainbow.svg" width="100%">
 </picture>
 
@@ -1062,7 +1052,7 @@ ${title('atividade')}
 
 ${title('formacao')}
 
-${picture('education', 'Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre, conclusão prevista para breve. Idiomas: português nativo; inglês avançado (CNA Master e Platinum).')}
+${picture('education', 'Formação: Bacharelado em Sistemas de Informação na UNIME, 8º semestre. Idioma: inglês avançado (CNA Master e Platinum).')}
 
 <br><br>
 
